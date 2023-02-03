@@ -5,10 +5,10 @@ Dev notes:
 
 
 Nice repository references:
-- Karpathy's [https://github.com/karpathy/nanoGPT](nanoGPT)
-- Berkeley's [https://github.com/nerfstudio-project/nerfstudio](nerfstudio)
-- Bring Your Own Latent ([https://github.com/sthalles/PyTorch-BYOL](BYOL))
-- Microsoft [https://github.com/microsoft/Swin-Transformer](Swin Transformer)
+- Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT)
+- Berkeley's [nerfstudio](https://github.com/nerfstudio-project/nerfstudio)
+- Bring Your Own Latent ([BYOL](https://github.com/sthalles/PyTorch-BYOL))
+- Microsoft [Swin Transformer](https://github.com/microsoft/Swin-Transformer)
 
 Larger codebases that are decent:
-- Facebook's [https://github.com/facebookresearch/SlowFast](PySlowFast) 
+- Facebook's [PySlowFast](https://github.com/facebookresearch/SlowFast)
