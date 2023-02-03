@@ -1,4 +1,4 @@
-from .resnet import ResNet
+from .resnet import ResNet18, ResNet34, ResNet50, ResNet101, ResNet152
 
 
 def build_model(config):
@@ -6,8 +6,16 @@ def build_model(config):
 
     model_type = config.MODEL.TYPE
 
-    if model_type == 'resnet':
-        model = ResNet(config.RESNET.NUM_BLOCKS)
+    if model_type == 'resnet18':
+        model = ResNet18(num_classes=config.MODEL.NUM_CLASSES)
+    elif model_type == 'resnet34':
+        model = ResNet34(num_classes=config.MODEL.NUM_CLASSES)
+    elif model_type == 'resnet50':
+        model = ResNet50(num_classes=config.MODEL.NUM_CLASSES)
+    elif model_type == 'resnet101':
+        model = ResNet101(num_classes=config.MODEL.NUM_CLASSES)
+    elif model_type == 'resnet152':
+        model = ResNet152(num_classes=config.MODEL.NUM_CLASSES)
     else:
         raise NotImplementedError(f"Unknown model: {model_type}")
     
