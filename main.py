@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.data.dataset import Dataset  # For custom datasets
-from config import get_config
+from utils.config import get_config
 import argparse
 import numpy as np
 import json
@@ -9,7 +9,7 @@ import datetime
 import os
 import time
 import shutil
-from logger import create_logger
+from utils.logger import create_logger
 from data import build_loader
 from models import build_model
 
