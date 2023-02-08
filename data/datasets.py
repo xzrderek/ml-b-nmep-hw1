@@ -14,7 +14,7 @@ class MediumImagenetDataset(Dataset):
         transforms = []
         transforms.append(PILToTensor())
         transforms.append(lambda x: x.to("cuda"))
-        normalization = torch.tensor([[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]]).to("cuda")
+        normalization = torch.Tensor([[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]]).to("cuda")
         transforms.append(Normalize(normalization[0], normalization[1]))
         transforms.append(Resize(config.DATA.IMG_SIZE))
         self.transforms = Compose(transforms)
