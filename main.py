@@ -1,36 +1,42 @@
+import argparse
+import datetime
+import json
+import os
+import shutil
+import time
+
+import numpy as np
 import torch
 import torch.nn as nn
 from torch.utils.data.dataset import Dataset  # For custom datasets
-from utils.config import get_config
-import argparse
-import numpy as np
-import json
-import datetime
-import os
-import time
-import shutil
-from utils.logger import create_logger
+from timm.utils import accuracy, AverageMeter
+
+from config import get_config
 from data import build_loader
 from models import build_model
+from optimizer import build_optimizer
+from scheduler import build_scheduler
+from utils import create_logger, load_checkpoint, save_checkpoint
+
 
 def parse_option():
-    parser = argparse.ArgumentParser('Swin Transformer training and evaluation script', add_help=False)
-    parser.add_argument('--cfg', type=str, required=True, metavar="FILE", help='path to config file', )
-    parser.add_argument(
-        "--opts",
-        help="Modify config options by adding 'KEY VALUE' pairs. ",
-        default=None,
-        nargs='+',
-    )
+    parser = argparse.ArgumentParser("Vision model training and evaluation script", add_help=False)
+    parser.add_argument("--cfg", type=str, required=True, metavar="FILE", help="path to config file")
+    parser.add_argument("--opts", help="Modify config options by adding 'KEY VALUE' pairs.", default=None, nargs="+")
 
     # easy config modification
-    parser.add_argument('--batch-size', type=int, help="batch size for single GPU")
-    parser.add_argument('--data-path', type=str, help='path to dataset')
-    parser.add_argument('--resume', help='resume from checkpoint')
-    parser.add_argument('--output', default='output', type=str, metavar='PATH',
-                        help='root of output folder, the full path is <output>/<model_name>/<tag> (default: output)')
-    parser.add_argument('--eval', action='store_true', help='Perform evaluation only')
-    parser.add_argument('--throughput', action='store_true', help='Test throughput only')
+    parser.add_argument("--batch-size", type=int, help="batch size for single GPU")
+    parser.add_argument("--data-path", type=str, help="path to dataset")
+    parser.add_argument("--resume", help="resume from checkpoint")
+    parser.add_argument(
+        "--output",
+        default="output",
+        type=str,
+        metavar="PATH",
+        help="root of output folder, the full path is <output>/<model_name>/<tag> (default: output)",
+    )
+    parser.add_argument("--eval", action="store_true", help="Perform evaluation only")
+    parser.add_argument("--throughput", action="store_true", help="Test throughput only")
 
     args = parser.parse_args()
 
@@ -39,44 +45,26 @@ def parse_option():
     return args, config
 
 
-def train(train_loader, model, criterion, optimizer, epoch):
-    model.train()
-    for i, (input, target) in enumerate(train_loader):
-    	#TODO: use the usual pytorch implementation of training
-
-def validate(val_loader, model, criterion):
-	model.eval()
-    for i, (input, target) in enumerate(val_loader):
-    	#TODO: implement the validation. Remember this is validation and not training
-    	#so some things will be different.
-
-def save_checkpoint(state, best_one, filename='rotationnetcheckpoint.pth.tar', filename2='rotationnetmodelbest.pth.tar'):
-	torch.save(state, filename)
-	#best_one stores whether your current checkpoint is better than the previous checkpoint
-    if best_one:
-        shutil.copyfile(filename, filename2)
-
 def main(config):
     dataset_train, dataset_val, data_loader_train, data_loader_val = build_loader(config)
 
     model = build_model(config)
     logger.info(str(model))
 
-    # n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    # logger.info(f"number of params: {n_parameters}")
-    # if hasattr(model, 'flops'):
-    #     flops = model.flops()
-    #     logger.info(f"number of GFLOPs: {flops / 1e9}")
+    n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    logger.info(f"number of params: {n_parameters}")
 
-    # model.cuda()
+    model.cuda()
 
     # can be simple
     optimizer = build_optimizer(config, model)
+    lr_scheduler = build_scheduler(config, optimizer, len(data_loader_train))
+    criterion = torch.nn.CrossEntropyLoss()
 
     max_accuracy = 0.0
 
     if config.MODEL.RESUME:
-        max_accuracy = load_checkpoint(config, model_without_ddp, optimizer, lr_scheduler, loss_scaler, logger)
+        max_accuracy = load_checkpoint(config, model, optimizer, lr_scheduler, logger)
         acc1, loss = validate(config, data_loader_val, model)
         logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {acc1:.1f}%")
         if config.EVAL_MODE:
@@ -91,25 +79,121 @@ def main(config):
     for epoch in range(config.TRAIN.START_EPOCH, config.TRAIN.EPOCHS):
         data_loader_train.sampler.set_epoch(epoch)
 
-        lr = optimizer.param_groups[0]['lr']
+        train_acc1, train_loss = train_one_epoch(
+            config, model, criterion, data_loader_train, optimizer, epoch, lr_scheduler
+        )
+        logger.info(f" * Train Acc {train_acc1:.3f} Train Loss {train_loss:.3f}")
+        logger.info(f"Accuracy of the network on the {len(dataset_train)} train images: {train_acc1:.1f}%")
 
-        train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch, mixup_fn, lr_scheduler,
-                        loss_scaler)
+        val_acc1, val_loss = validate(config, data_loader_val, model)
+        logger.info(f" * Test Acc {val_acc1:.3f} Test Loss {val_loss:.3f}")
+        logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {val_acc1:.1f}%")
+
         if epoch % config.SAVE_FREQ == 0 or epoch == (config.TRAIN.EPOCHS - 1):
-            save_checkpoint(config, epoch, model_without_ddp, max_accuracy, optimizer, lr_scheduler, loss_scaler,
-                            logger)
+            save_checkpoint(config, epoch, model, max_accuracy, optimizer, lr_scheduler, logger)
 
-        acc1, loss = validate(config, data_loader_val, model)
-        logger.info(f' * Acc {acc1:.3f} Loss {loss:.3f}')
-        logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {acc1:.1f}%")
-        max_accuracy = max(max_accuracy, acc1)
-        logger.info(f'Max accuracy: {max_accuracy:.2f}%')
+        max_accuracy = max(max_accuracy, val_acc1)
+        logger.info(f"Max accuracy: {max_accuracy:.2f}%")
 
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
-    logger.info('Training time {}'.format(total_time_str))
+    logger.info("Training time {}".format(total_time_str))
 
 
+def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_scheduler):
+    model.train()
+    optimizer.zero_grad()
+
+    num_steps = len(data_loader)
+    batch_time = AverageMeter()
+    loss_meter = AverageMeter()
+    acc1_meter = AverageMeter()
+
+    start = time.time()
+    end = time.time()
+    for idx, (samples, targets) in enumerate(data_loader):
+        samples = samples.cuda(non_blocking=True)
+        targets = targets.cuda(non_blocking=True)
+
+        optimizer.zero_grad()
+
+        with torch.cuda.amp.autocast(enabled=config.AMP_ENABLE):
+            outputs = model(samples)
+        loss = criterion(outputs, targets)
+        acc1 = accuracy(outputs, targets)
+
+        loss.backward()
+        optimizer.step()
+
+        lr_scheduler.step_update((epoch * num_steps + idx) // config.TRAIN.ACCUMULATION_STEPS)
+
+        torch.cuda.synchronize()
+
+        loss_meter.update(loss.item(), targets.size(0))
+        acc1_meter.update(acc1.item(), targets.size(0))
+        batch_time.update(time.time() - end)
+        end = time.time()
+
+        if idx % config.PRINT_FREQ == 0:
+            lr = optimizer.param_groups[0]["lr"]
+            memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
+            etas = batch_time.avg * (num_steps - idx)
+            logger.info(
+                f"Train: [{epoch}/{config.TRAIN.EPOCHS}][{idx}/{num_steps}]\t"
+                f"eta {datetime.timedelta(seconds=int(etas))} lr {lr:.6f}\t"
+                f"time {batch_time.val:.4f} ({batch_time.avg:.4f})\t"
+                f"loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
+                f"mem {memory_used:.0f}MB"
+            )
+            # f'Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t'
+    epoch_time = time.time() - start
+    logger.info(f"EPOCH {epoch} training takes {datetime.timedelta(seconds=int(epoch_time))}")
+    return acc1_meter.avg, loss_meter.avg
+
+
+@torch.no_grad()
+def validate(config, data_loader, model):
+    criterion = torch.nn.CrossEntropyLoss()
+    model.eval()
+
+    batch_time = AverageMeter()
+    loss_meter = AverageMeter()
+    acc1_meter = AverageMeter()
+    acc5_meter = AverageMeter()
+
+    end = time.time()
+    for idx, (images, target) in enumerate(data_loader):
+        images = images.cuda(non_blocking=True)
+        target = target.cuda(non_blocking=True)
+
+        # compute output
+        with torch.cuda.amp.autocast(enabled=config.AMP_ENABLE):
+            output = model(images)
+
+        # measure accuracy and record loss
+        loss = criterion(output, target)
+        acc1, acc5 = accuracy(output, target, topk=(1, 5))
+
+        loss_meter.update(loss.item(), target.size(0))
+        acc1_meter.update(acc1.item(), target.size(0))
+        acc5_meter.update(acc5.item(), target.size(0))
+
+        # measure elapsed time
+        batch_time.update(time.time() - end)
+        end = time.time()
+
+        if idx % config.PRINT_FREQ == 0:
+            memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
+            logger.info(
+                f"Test: [{idx}/{len(data_loader)}]\t"
+                f"Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t"
+                f"Loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
+                f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
+                f"Acc@5 {acc5_meter.val:.3f} ({acc5_meter.avg:.3f})\t"
+                f"Mem {memory_used:.0f}MB"
+            )
+    logger.info(f" * Acc@1 {acc1_meter.avg:.3f} Acc@5 {acc5_meter.avg:.3f}")
+    return acc1_meter.avg, acc5_meter.avg, loss_meter.avg
 
 
 if __name__ == "__main__":
@@ -121,7 +205,7 @@ if __name__ == "__main__":
     np.random.seed(seed)
     # random.seed(seed)
 
-    # Make output dir 
+    # Make output dir
     os.makedirs(config.OUTPUT, exist_ok=True)
     logger = create_logger(output_dir=config.OUTPUT, name=f"{config.MODEL.NAME}")
 

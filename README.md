@@ -11,6 +11,7 @@ Tiny, hackable codebases:
 - Bring Your Own Latent ([BYOL](https://github.com/sthalles/PyTorch-BYOL))
 - Kaiming's [Masked Autoencoders](https://github.com/facebookresearch/mae) (absolutely superb for submitit, helpful for slurm)
 - Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT) (slightly more structure but enough to train large models)
+- [CleanRL](https://github.com/vwxyzjn/cleanrl), nice for RL... obviously
 
 
 Medium sized repositories with good abstractions (actual folder breakdowns):

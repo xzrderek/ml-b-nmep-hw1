@@ -13,7 +13,7 @@ from yacs.config import CfgNode as CN
 # This is the config file that we will modify for each experiment
 base_config = CN()
 
-# Base config files
+# Base config files to inherit from, relative to the current config file
 base_config.BASE = [""]
 
 # -----------------------------------------------------------------------------
@@ -61,7 +61,6 @@ base_config.TRAIN = CN()
 base_config.TRAIN.START_EPOCH = 0
 base_config.TRAIN.EPOCHS = 300
 base_config.TRAIN.WARMUP_EPOCHS = 20
-base_config.TRAIN.WEIGHT_DECAY = 0.05
 base_config.TRAIN.LR = 5e-4
 
 # Gradient accumulation steps
@@ -123,10 +122,11 @@ def _update_config_from_file(config, cfg_file):
     with open(cfg_file, "r") as f:
         yaml_cfg = yaml.load(f, Loader=yaml.FullLoader)
 
-    for cfg in yaml_cfg.setdefault("BASE", [""]):
-        if cfg:
-            _update_config_from_file(config, os.path.join(os.path.dirname(cfg_file), cfg))
-    print("=> merge config from {}".format(cfg_file))
+    # Use the config in BASE as the default
+    for base_cfg in yaml_cfg.setdefault("BASE", [""]):
+        if base_cfg:
+            _update_config_from_file(config, os.path.join(os.path.dirname(cfg_file), base_cfg))
+    print(f"=> merge config from {cfg_file}")
     config.merge_from_file(cfg_file)
     config.freeze()
 
@@ -175,15 +175,6 @@ def update_config(config, args):
     if _check_args("throughput"):
         config.THROUGHPUT_MODE = True
 
-    # [SimMIM]
-    if _check_args("enable_amp"):
-        config.ENABLE_AMP = args.enable_amp
-
-    # for acceleration
-    if _check_args("fused_window_process"):
-        config.FUSED_WINDOW_PROCESS = True
-    if _check_args("fused_layernorm"):
-        config.FUSED_LAYERNORM = True
     ## Overwrite optimizer if not None, currently we use it for [fused_adam, fused_lamb]
     if _check_args("optim"):
         config.TRAIN.OPTIMIZER.NAME = args.optim
