@@ -1,4 +1,32 @@
+from torch.utils.data import DataLoader
+
+from data.datasets import CIFAR10Dataset, MediumImagenetDataset
+
 
 def build_loader(config):
-    return 0 
-    raise NotImplementedError
+    if config.DATA.DATASET == "cifar10":
+        dataset_train = CIFAR10Dataset(config)
+        dataset_val = CIFAR10Dataset(config)
+    elif config.DATA.DATASET == "medium_imagenet":
+        dataset_train = MediumImagenetDataset(config)
+        dataset_val = MediumImagenetDataset(config)
+    else:
+        raise NotImplementedError
+
+    data_loader_train = DataLoader(
+        dataset_train,
+        batch_size=config.DATA.BATCH_SIZE,
+        shuffle=True,
+        num_workers=config.DATA.NUM_WORKERS,
+        pin_memory=config.DATA.PIN_MEMORY,
+    )
+
+    data_loader_val = DataLoader(
+        dataset_val,
+        batch_size=config.TRAIN.BATCH_SIZE,
+        shuffle=False,
+        num_workers=config.DATA.NUM_WORKERS,
+        pin_memory=False,
+    )
+
+    return data_loader_train, data_loader_val

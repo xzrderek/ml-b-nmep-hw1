@@ -25,7 +25,7 @@ base_config.DATA.BATCH_SIZE = 128
 # Path to dataset, could be overwritten by command line argument
 base_config.DATA.DATA_PATH = ""
 # Dataset name
-base_config.DATA.DATASET = "imagenet"
+base_config.DATA.DATASET = "cifar"
 # Input image size
 base_config.DATA.IMG_SIZE = 224
 # Interpolation to resize image (random, bilinear, bicubic)
