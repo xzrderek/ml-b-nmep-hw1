@@ -4,7 +4,7 @@ from .resnet import ResNet18, ResNet34, ResNet50, ResNet101, ResNet152
 def build_model(config):
     "Model builder."
 
-    model_type = config.MODEL.TYPE
+    model_type = config.MODEL.NAME
 
     if model_type == 'resnet18':
         model = ResNet18(num_classes=config.MODEL.NUM_CLASSES)

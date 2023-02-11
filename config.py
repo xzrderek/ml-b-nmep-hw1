@@ -39,10 +39,8 @@ base_config.DATA.NUM_WORKERS = 8
 # Model settings
 # -----------------------------------------------------------------------------
 base_config.MODEL = CN()
-# Model type
-base_config.MODEL.TYPE = "swin"
-# Model name
-base_config.MODEL.NAME = "swin_tiny_patch4_window7_224"
+# Model NAME 
+base_config.MODEL.NAME = "swin"
 # Checkpoint to resume, could be overwritten by command line argument
 base_config.MODEL.RESUME = ""
 # Number of classes, overwritten in data preparation
@@ -62,6 +60,8 @@ base_config.TRAIN.START_EPOCH = 0
 base_config.TRAIN.EPOCHS = 300
 base_config.TRAIN.WARMUP_EPOCHS = 20
 base_config.TRAIN.LR = 5e-4
+base_config.TRAIN.MIN_LR = 5e-4
+base_config.TRAIN.WARMUP_LR = 5e-4
 
 # Gradient accumulation steps
 # could be overwritten by command line argument
@@ -113,8 +113,6 @@ base_config.PRINT_FREQ = 10
 base_config.SEED = 0
 # Perform evaluation only, overwritten by command line argument
 base_config.EVAL_MODE = False
-# Test throughput only, overwritten by command line argument
-base_config.THROUGHPUT_MODE = False
 
 
 def _update_config_from_file(config, cfg_file):
@@ -148,42 +146,17 @@ def update_config(config, args):
         config.DATA.BATCH_SIZE = args.batch_size
     if _check_args("data_path"):
         config.DATA.DATA_PATH = args.data_path
-    if _check_args("zip"):
-        config.DATA.ZIP_MODE = True
-    if _check_args("cache_mode"):
-        config.DATA.CACHE_MODE = args.cache_mode
-    if _check_args("pretrained"):
-        config.MODEL.PRETRAINED = args.pretrained
     if _check_args("resume"):
         config.MODEL.RESUME = args.resume
-    if _check_args("accumulation_steps"):
-        config.TRAIN.ACCUMULATION_STEPS = args.accumulation_steps
     if _check_args("use_checkpoint"):
         config.TRAIN.USE_CHECKPOINT = True
-    if _check_args("amp_opt_level"):
-        print("[warning] Apex amp has been deprecated, please use pytorch amp instead!")
-        if args.amp_opt_level == "O0":
-            config.AMP_ENABLE = False
-    if _check_args("disable_amp"):
-        config.AMP_ENABLE = False
     if _check_args("output"):
         config.OUTPUT = args.output
-    if _check_args("tag"):
-        config.TAG = args.tag
     if _check_args("eval"):
         config.EVAL_MODE = True
-    if _check_args("throughput"):
-        config.THROUGHPUT_MODE = True
-
-    ## Overwrite optimizer if not None, currently we use it for [fused_adam, fused_lamb]
-    if _check_args("optim"):
-        config.TRAIN.OPTIMIZER.NAME = args.optim
-
-    # set local rank for distributed training
-    config.LOCAL_RANK = args.local_rank
 
     # output folder
-    config.OUTPUT = os.path.join(config.OUTPUT, config.MODEL.NAME, config.TAG)
+    config.OUTPUT = os.path.join(config.OUTPUT, config.MODEL.NAME)
 
     config.freeze()
 

@@ -5,8 +5,8 @@ from data.datasets import CIFAR10Dataset, MediumImagenetDataset
 
 def build_loader(config):
     if config.DATA.DATASET == "cifar10":
-        dataset_train = CIFAR10Dataset(config)
-        dataset_val = CIFAR10Dataset(config)
+        dataset_train = CIFAR10Dataset(train=True)
+        dataset_val = CIFAR10Dataset(train=False)
     elif config.DATA.DATASET == "medium_imagenet":
         dataset_train = MediumImagenetDataset(config)
         dataset_val = MediumImagenetDataset(config)
@@ -23,10 +23,10 @@ def build_loader(config):
 
     data_loader_val = DataLoader(
         dataset_val,
-        batch_size=config.TRAIN.BATCH_SIZE,
+        batch_size=config.DATA.BATCH_SIZE,
         shuffle=False,
         num_workers=config.DATA.NUM_WORKERS,
         pin_memory=False,
     )
 
-    return data_loader_train, data_loader_val
+    return dataset_train, dataset_val, data_loader_train, data_loader_val

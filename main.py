@@ -70,23 +70,18 @@ def main(config):
         if config.EVAL_MODE:
             return
 
-    # if config.THROUGHPUT_MODE:
-    #     throughput(data_loader_val, model, logger)
-    #     return
-
     logger.info("Start training")
     start_time = time.time()
     for epoch in range(config.TRAIN.START_EPOCH, config.TRAIN.EPOCHS):
-        data_loader_train.sampler.set_epoch(epoch)
-
         train_acc1, train_loss = train_one_epoch(
             config, model, criterion, data_loader_train, optimizer, epoch, lr_scheduler
         )
         logger.info(f" * Train Acc {train_acc1:.3f} Train Loss {train_loss:.3f}")
         logger.info(f"Accuracy of the network on the {len(dataset_train)} train images: {train_acc1:.1f}%")
 
+        train_acc1, _ = validate(config, data_loader_train, model)
         val_acc1, val_loss = validate(config, data_loader_val, model)
-        logger.info(f" * Test Acc {val_acc1:.3f} Test Loss {val_loss:.3f}")
+        logger.info(f" * Train Acc {train_acc1:.3f} Test Acc {val_acc1:.3f} Test Loss {val_loss:.3f}")
         logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {val_acc1:.1f}%")
 
         if epoch % config.SAVE_FREQ == 0 or epoch == (config.TRAIN.EPOCHS - 1):
@@ -102,7 +97,6 @@ def main(config):
 
 def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_scheduler):
     model.train()
-    optimizer.zero_grad()
 
     num_steps = len(data_loader)
     batch_time = AverageMeter()
@@ -116,19 +110,15 @@ def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_
         targets = targets.cuda(non_blocking=True)
 
         optimizer.zero_grad()
+        outputs = model(samples)
 
-        with torch.cuda.amp.autocast(enabled=config.AMP_ENABLE):
-            outputs = model(samples)
         loss = criterion(outputs, targets)
-        acc1 = accuracy(outputs, targets)
-
         loss.backward()
         optimizer.step()
 
-        lr_scheduler.step_update((epoch * num_steps + idx) // config.TRAIN.ACCUMULATION_STEPS)
+        lr_scheduler.step_update(epoch * num_steps + idx)
 
-        torch.cuda.synchronize()
-
+        acc1, = accuracy(outputs, targets)
         loss_meter.update(loss.item(), targets.size(0))
         acc1_meter.update(acc1.item(), targets.size(0))
         batch_time.update(time.time() - end)
@@ -143,9 +133,9 @@ def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_
                 f"eta {datetime.timedelta(seconds=int(etas))} lr {lr:.6f}\t"
                 f"time {batch_time.val:.4f} ({batch_time.avg:.4f})\t"
                 f"loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
+                f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
                 f"mem {memory_used:.0f}MB"
             )
-            # f'Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t'
     epoch_time = time.time() - start
     logger.info(f"EPOCH {epoch} training takes {datetime.timedelta(seconds=int(epoch_time))}")
     return acc1_meter.avg, loss_meter.avg
@@ -159,7 +149,6 @@ def validate(config, data_loader, model):
     batch_time = AverageMeter()
     loss_meter = AverageMeter()
     acc1_meter = AverageMeter()
-    acc5_meter = AverageMeter()
 
     end = time.time()
     for idx, (images, target) in enumerate(data_loader):
@@ -167,16 +156,14 @@ def validate(config, data_loader, model):
         target = target.cuda(non_blocking=True)
 
         # compute output
-        with torch.cuda.amp.autocast(enabled=config.AMP_ENABLE):
-            output = model(images)
+        output = model(images)
 
         # measure accuracy and record loss
         loss = criterion(output, target)
-        acc1, acc5 = accuracy(output, target, topk=(1, 5))
+        acc1, = accuracy(output, target)
 
         loss_meter.update(loss.item(), target.size(0))
         acc1_meter.update(acc1.item(), target.size(0))
-        acc5_meter.update(acc5.item(), target.size(0))
 
         # measure elapsed time
         batch_time.update(time.time() - end)
@@ -189,11 +176,10 @@ def validate(config, data_loader, model):
                 f"Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t"
                 f"Loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
                 f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
-                f"Acc@5 {acc5_meter.val:.3f} ({acc5_meter.avg:.3f})\t"
                 f"Mem {memory_used:.0f}MB"
             )
-    logger.info(f" * Acc@1 {acc1_meter.avg:.3f} Acc@5 {acc5_meter.avg:.3f}")
-    return acc1_meter.avg, acc5_meter.avg, loss_meter.avg
+    logger.info(f" * Test Acc@1 {acc1_meter.avg:.3f}")
+    return acc1_meter.avg, loss_meter.avg
 
 
 if __name__ == "__main__":
