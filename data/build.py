@@ -8,8 +8,8 @@ def build_loader(config):
         dataset_train = CIFAR10Dataset(train=True)
         dataset_val = CIFAR10Dataset(train=False)
     elif config.DATA.DATASET == "medium_imagenet":
-        dataset_train = MediumImagenetDataset(config)
-        dataset_val = MediumImagenetDataset(config)
+        dataset_train = MediumImagenetDataset(config, train=True)
+        dataset_val = MediumImagenetDataset(config, train=False)
     else:
         raise NotImplementedError
 

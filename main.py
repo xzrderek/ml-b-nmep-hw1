@@ -8,9 +8,9 @@ import time
 import numpy as np
 import torch
 import torch.nn as nn
-from torch.utils.data.dataset import Dataset  # For custom datasets
-from timm.utils import accuracy, AverageMeter
-
+from timm.utils import AverageMeter, accuracy
+from torch.utils.data import Dataset  # For custom datasets
+from tqdm import tqdm
 from config import get_config
 from data import build_loader
 from models import build_model
@@ -105,7 +105,7 @@ def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_
 
     start = time.time()
     end = time.time()
-    for idx, (samples, targets) in enumerate(data_loader):
+    for idx, (samples, targets) in enumerate(tqdm(data_loader, leave=False)):
         samples = samples.cuda(non_blocking=True)
         targets = targets.cuda(non_blocking=True)
 
@@ -118,7 +118,7 @@ def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_
 
         lr_scheduler.step_update(epoch * num_steps + idx)
 
-        acc1, = accuracy(outputs, targets)
+        (acc1,) = accuracy(outputs, targets)
         loss_meter.update(loss.item(), targets.size(0))
         acc1_meter.update(acc1.item(), targets.size(0))
         batch_time.update(time.time() - end)
@@ -160,7 +160,7 @@ def validate(config, data_loader, model):
 
         # measure accuracy and record loss
         loss = criterion(output, target)
-        acc1, = accuracy(output, target)
+        (acc1,) = accuracy(output, target)
 
         loss_meter.update(loss.item(), target.size(0))
         acc1_meter.update(acc1.item(), target.size(0))

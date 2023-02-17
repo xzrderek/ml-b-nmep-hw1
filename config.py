@@ -39,7 +39,7 @@ base_config.DATA.NUM_WORKERS = 8
 # Model settings
 # -----------------------------------------------------------------------------
 base_config.MODEL = CN()
-# Model NAME 
+# Model NAME
 base_config.MODEL.NAME = "swin"
 # Checkpoint to resume, could be overwritten by command line argument
 base_config.MODEL.RESUME = ""
