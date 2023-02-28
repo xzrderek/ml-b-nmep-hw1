@@ -10,12 +10,12 @@ import torch
 import torch.nn as nn
 from timm.utils import AverageMeter, accuracy
 from torch.utils.data import Dataset  # For custom datasets
+from torch.optim.lr_scheduler import CosineAnnealingLR
 from tqdm import tqdm
 from config import get_config
 from data import build_loader
 from models import build_model
 from optimizer import build_optimizer
-from scheduler import build_scheduler
 from utils import create_logger, load_checkpoint, save_checkpoint
 
 
@@ -56,10 +56,10 @@ def main(config):
 
     model.cuda()
 
-    # can be simple
+    # Keep it simple with basic epoch scheduler
     optimizer = build_optimizer(config, model)
-    lr_scheduler = build_scheduler(config, optimizer, len(data_loader_train))
     criterion = torch.nn.CrossEntropyLoss()
+    lr_scheduler = CosineAnnealingLR(optimizer, config.TRAIN.EPOCHS)
 
     max_accuracy = 0.0
 
@@ -74,14 +74,14 @@ def main(config):
     start_time = time.time()
     for epoch in range(config.TRAIN.START_EPOCH, config.TRAIN.EPOCHS):
         train_acc1, train_loss = train_one_epoch(
-            config, model, criterion, data_loader_train, optimizer, epoch, lr_scheduler
+            config, model, criterion, data_loader_train, optimizer, epoch 
         )
         logger.info(f" * Train Acc {train_acc1:.3f} Train Loss {train_loss:.3f}")
         logger.info(f"Accuracy of the network on the {len(dataset_train)} train images: {train_acc1:.1f}%")
 
-        train_acc1, _ = validate(config, data_loader_train, model)
+        # train_acc1, _ = validate(config, data_loader_train, model)
         val_acc1, val_loss = validate(config, data_loader_val, model)
-        logger.info(f" * Train Acc {train_acc1:.3f} Test Acc {val_acc1:.3f} Test Loss {val_loss:.3f}")
+        logger.info(f" * Test Acc {val_acc1:.3f} Test Loss {val_loss:.3f}")
         logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {val_acc1:.1f}%")
 
         if epoch % config.SAVE_FREQ == 0 or epoch == (config.TRAIN.EPOCHS - 1):
@@ -89,13 +89,14 @@ def main(config):
 
         max_accuracy = max(max_accuracy, val_acc1)
         logger.info(f"Max accuracy: {max_accuracy:.2f}%")
+        lr_scheduler.step(epoch - 1)
 
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     logger.info("Training time {}".format(total_time_str))
 
 
-def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_scheduler):
+def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch):
     model.train()
 
     num_steps = len(data_loader)
@@ -115,8 +116,6 @@ def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch, lr_
         loss = criterion(outputs, targets)
         loss.backward()
         optimizer.step()
-
-        lr_scheduler.step_update(epoch * num_steps + idx)
 
         (acc1,) = accuracy(outputs, targets)
         loss_meter.update(loss.item(), targets.size(0))
