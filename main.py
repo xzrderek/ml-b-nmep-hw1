@@ -148,18 +148,16 @@ def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch):
         batch_time.update(time.time() - end)
         end = time.time()
 
-        if idx % config.PRINT_FREQ == 0:
-            lr = optimizer.param_groups[0]["lr"]
-            memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
-            etas = batch_time.avg * (num_steps - idx)
-            logger.info(
-                f"Train: [{epoch}/{config.TRAIN.EPOCHS}][{idx}/{num_steps}]\t"
-                f"eta {datetime.timedelta(seconds=int(etas))} lr {lr:.6f}\t"
-                f"time {batch_time.val:.4f} ({batch_time.avg:.4f})\t"
-                f"loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
-                f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
-                f"mem {memory_used:.0f}MB"
-            )
+    lr = optimizer.param_groups[0]["lr"]
+    memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
+    logger.info(
+        f"Train: [{epoch}/{config.TRAIN.EPOCHS}]\t"
+        f"lr {lr:.6f}\t"
+        f"time {batch_time.val:.4f} ({batch_time.avg:.4f})\t"
+        f"loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
+        f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
+        f"Mem {memory_used:.0f}MB"
+    )
     epoch_time = time.time() - start
     logger.info(f"EPOCH {epoch} training takes {datetime.timedelta(seconds=int(epoch_time))}")
     return acc1_meter.avg, loss_meter.avg
@@ -193,15 +191,14 @@ def validate(config, data_loader, model):
         batch_time.update(time.time() - end)
         end = time.time()
 
-        if idx % config.PRINT_FREQ == 0:
-            memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
-            logger.info(
-                f"Validate: [{idx}/{len(data_loader)}]\t"
-                f"Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t"
-                f"Loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
-                f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
-                f"Mem {memory_used:.0f}MB"
-            )
+    memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
+    logger.info(
+        f"Validate: \t"
+        f"Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t"
+        f"Loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
+        f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
+        f"Mem {memory_used:.0f}MB"
+    )
     return acc1_meter.avg, loss_meter.avg
 
 
