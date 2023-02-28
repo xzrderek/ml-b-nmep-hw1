@@ -22,16 +22,17 @@ def create_logger(output_dir, name=""):
 
     # create formatter
     fmt = "[%(asctime)s %(name)s] (%(filename)s %(lineno)d): %(levelname)s %(message)s"
-    # color_fmt = (
-    #     colored("[%(asctime)s %(name)s]", "green")
-    #     + colored("(%(filename)s %(lineno)d)", "yellow")
-    #     + ": %(levelname)s %(message)s"
-    # )
-
     color_fmt = (
-        colored("(%(filename)s %(lineno)d)", "yellow")
+        colored("[%(asctime)s %(name)s]", "green")
+        + colored("(%(filename)s %(lineno)d)", "yellow")
         + ": %(levelname)s %(message)s"
     )
+
+    # Or use this for less verbose logging:
+    # color_fmt = (
+    #     colored("(%(filename)s %(lineno)d)", "green")
+    #     + ": %(levelname)s %(message)s"
+    # )
 
 
     # create console handlers for master process
