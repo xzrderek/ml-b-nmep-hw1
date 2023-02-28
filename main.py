@@ -9,9 +9,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 from timm.utils import AverageMeter, accuracy
-from torch.utils.data import Dataset  # For custom datasets
 from torch.optim.lr_scheduler import CosineAnnealingLR
+from torch.utils.data import Dataset  # For custom datasets
 from tqdm import tqdm
+
 from config import get_config
 from data import build_loader
 from models import build_model
@@ -46,7 +47,9 @@ def parse_option():
 
 
 def main(config):
-    dataset_train, dataset_val, data_loader_train, data_loader_val = build_loader(config)
+    dataset_train, dataset_val, dataset_test, data_loader_train, data_loader_val, data_loader_test = build_loader(
+        config
+    )
 
     model = build_model(config)
     logger.info(str(model))
@@ -54,7 +57,7 @@ def main(config):
     n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
     logger.info(f"number of params: {n_parameters}")
 
-    model.cuda()
+    model = model.cuda()
 
     # Keep it simple with basic epoch scheduler
     optimizer = build_optimizer(config, model)
@@ -66,23 +69,21 @@ def main(config):
     if config.MODEL.RESUME:
         max_accuracy = load_checkpoint(config, model, optimizer, lr_scheduler, logger)
         acc1, loss = validate(config, data_loader_val, model)
-        logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {acc1:.1f}%")
+        logger.info(f"Accuracy of the network on the {len(dataset_val)} val images: {acc1:.1f}%")
         if config.EVAL_MODE:
             return
 
     logger.info("Start training")
     start_time = time.time()
     for epoch in range(config.TRAIN.START_EPOCH, config.TRAIN.EPOCHS):
-        train_acc1, train_loss = train_one_epoch(
-            config, model, criterion, data_loader_train, optimizer, epoch 
-        )
+        train_acc1, train_loss = train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch)
         logger.info(f" * Train Acc {train_acc1:.3f} Train Loss {train_loss:.3f}")
         logger.info(f"Accuracy of the network on the {len(dataset_train)} train images: {train_acc1:.1f}%")
 
         # train_acc1, _ = validate(config, data_loader_train, model)
         val_acc1, val_loss = validate(config, data_loader_val, model)
-        logger.info(f" * Test Acc {val_acc1:.3f} Test Loss {val_loss:.3f}")
-        logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {val_acc1:.1f}%")
+        logger.info(f" * Val Acc {val_acc1:.3f} Val Loss {val_loss:.3f}")
+        logger.info(f"Accuracy of the network on the {len(dataset_val)} val images: {val_acc1:.1f}%")
 
         if epoch % config.SAVE_FREQ == 0 or epoch == (config.TRAIN.EPOCHS - 1):
             save_checkpoint(config, epoch, model, max_accuracy, optimizer, lr_scheduler, logger)
@@ -94,6 +95,11 @@ def main(config):
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     logger.info("Training time {}".format(total_time_str))
+
+    logger.info("Start testing")
+    preds = evaluate(config, data_loader_test, model)
+    np.save(os.path.join(config.OUTPUT, "preds.npy"), preds)
+    # TODO save predictions to csv in kaggle format
 
 
 def train_one_epoch(config, model, criterion, data_loader, optimizer, epoch):
@@ -171,14 +177,25 @@ def validate(config, data_loader, model):
         if idx % config.PRINT_FREQ == 0:
             memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
             logger.info(
-                f"Test: [{idx}/{len(data_loader)}]\t"
+                f"Validate: [{idx}/{len(data_loader)}]\t"
                 f"Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t"
                 f"Loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t"
                 f"Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t"
                 f"Mem {memory_used:.0f}MB"
             )
-    logger.info(f" * Test Acc@1 {acc1_meter.avg:.3f}")
     return acc1_meter.avg, loss_meter.avg
+
+
+@torch.no_grad()
+def evaluate(config, data_loader, model):
+    model.eval()
+    preds = []
+    for idx, (images, _) in enumerate(tqdm(data_loader)):
+        images = images.cuda(non_blocking=True)
+        output = model(images)
+        preds.append(output.cpu().numpy())
+    preds = np.concatenate(preds)
+    return preds
 
 
 if __name__ == "__main__":

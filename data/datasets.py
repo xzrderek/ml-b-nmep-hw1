@@ -1,80 +1,92 @@
 from __future__ import annotations
 
+import h5py
 import torch
 from PIL import Image, ImageFile
 from torch.utils.data import Dataset, Subset
 from torchvision import transforms
 from torchvision.datasets import CIFAR10, ImageFolder
-import h5py
+
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 # from torchvision.transforms import Compose, Normalize, PILToTensor, Resize
 
 
-class MediumImagenetDataset(Dataset):
-    def __init__(self, config, train=True, augment=True):
-        self.config = config
-        self.train = train
-        self.input_size = config.DATA.IMG_SIZE
-        self.transform = self._get_transforms()
-        self.augment=True
-        ds = ImageFolder("/data/medium-imagenet/data")
-        if train:
-            self.dataset = Subset(ds, range(0, len(ds) * 9 // 10))
-        else:
-            self.dataset = Subset(ds, range(len(ds) * 9 // 10, len(ds)))
+# deprecated in favor of MediumImagenetHDF5Dataset
+# class MediumImagenetDataset(Dataset):
+#     def __init__(self, img_size, split:str='train', augment=True):
+#         assert split in ['train', 'val', 'test']
+#         self.split = split
+#         self.augment = augment
+#         self.input_size = img_size
+#         self.transform = self._get_transforms()
+#         ds = ImageFolder("/data/medium-imagenet/data")
+#         if split == 'train':
+#             self.dataset = Subset(ds, range(0, len(ds) * 9 // 10))
+#         else:
+#             self.dataset = Subset(ds, range(len(ds) * 9 // 10, len(ds)))
 
-    def __getitem__(self, index):
-        image, label = self.dataset[index]
-        image = self.transform(image)
-        return image, label
+#     def __getitem__(self, index):
+#         image, label = self.dataset[index]
+#         image = self.transform(image)
+#         return image, label
 
-    def __len__(self):
-        return len(self.dataset)
+#     def __len__(self):
+#         return len(self.dataset)
 
-    def _get_transforms(self):
-        transform = []
-        transform.append(transforms.PILToTensor())
-        transform.append(lambda x: x.to(torch.float))
-        normalization = torch.Tensor([[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]])
-        transform.append(transforms.Normalize(normalization[0], normalization[1]))
-        if self.train and self.augment:
-            transform.extend(
-                [
-                    transforms.RandomHorizontalFlip(),
-                    transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4),
-                ]
-            )
-        transform.append(transforms.Resize([self.input_size] * 2))
-        return transforms.Compose(transform)
+#     def _get_transforms(self):
+#         transform = []
+#         transform.append(transforms.PILToTensor())
+#         transform.append(lambda x: x.to(torch.float))
+#         normalization = torch.Tensor([[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]])
+#         transform.append(transforms.Normalize(normalization[0], normalization[1]))
+#         if self.train and self.augment:
+#             transform.extend(
+#                 [
+#                     transforms.RandomHorizontalFlip(),
+#                     transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4),
+#                 ]
+#             )
+#         transform.append(transforms.Resize([self.input_size] * 2))
+#         return transforms.Compose(transform)
 
 
 class MediumImagenetHDF5Dataset(Dataset):
-    def __init__(self, config, train=True, augment=True):
-        self.config = config
-        self.train = train
-        self.input_size = config.DATA.IMG_SIZE
+    def __init__(
+        self,
+        img_size,
+        split: str = "train",
+        filepath: str = "/data/medium-imagenet/medium-imagenet-nmep-96.hdf5",
+        augment: bool = True,
+    ):
+        assert split in ["train", "val", "test"]
+        self.split = split
+        self.augment = augment
+        self.input_size = img_size
         self.transform = self._get_transforms()
-
+        self.file = h5py.File(filepath, "r")
 
     def __getitem__(self, index):
-        f = h5py.File("/data/medium-imagenet/data.hdf5", "r")
-        image = f["images-" + ("train" if self.train else "val")][index]
-        label = f["labels-" + ("train" if self.train else "val")][index]
+        image = self.file[f"images-{self.split}"][index]
+        if self.split != "test":
+            label = self.file[f"labels-{self.split}"][index]
+        else:
+            label = -1
         image = self.transform(image)
-        label = torch.tensor(label).float()
+        label = torch.tensor(label, dtype=torch.long)
         return image, label
 
     def __len__(self):
-        return len(self.dataset)
+        return len(self.file[f"images-{self.split}"])
 
     def _get_transforms(self):
         transform = []
-        transform.append(lambda x: torch.tensor(x/256).to(torch.float))
+        transform.append(lambda x: torch.tensor(x / 256).to(torch.float))
         normalization = torch.Tensor([[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]])
         transform.append(transforms.Normalize(normalization[0], normalization[1]))
-        if self.train:
+        transform.append(transforms.Resize([self.input_size] * 2))
+        if self.split == "train" and self.augment:
             transform.extend(
                 [
                     transforms.RandomHorizontalFlip(),

@@ -1,15 +1,17 @@
 from torch.utils.data import DataLoader
 
-from data.datasets import CIFAR10Dataset, MediumImagenetDataset
+from data.datasets import CIFAR10Dataset, MediumImagenetHDF5Dataset
 
 
 def build_loader(config):
     if config.DATA.DATASET == "cifar10":
         dataset_train = CIFAR10Dataset(train=True)
         dataset_val = CIFAR10Dataset(train=False)
+        dataset_test = CIFAR10Dataset(train=False)
     elif config.DATA.DATASET == "medium_imagenet":
-        dataset_train = MediumImagenetDataset(config, train=True)
-        dataset_val = MediumImagenetDataset(config, train=False)
+        dataset_train = MediumImagenetHDF5Dataset(config.DATA.IMG_SIZE, split="train", augment=True)
+        dataset_val = MediumImagenetHDF5Dataset(config.DATA.IMG_SIZE, split="val", augment=False)
+        dataset_test = MediumImagenetHDF5Dataset(config.DATA.IMG_SIZE, split="test", augment=False)
     else:
         raise NotImplementedError
 
@@ -29,4 +31,12 @@ def build_loader(config):
         pin_memory=False,
     )
 
-    return dataset_train, dataset_val, data_loader_train, data_loader_val
+    data_loader_test = DataLoader(
+        dataset_test,
+        batch_size=config.DATA.BATCH_SIZE,
+        shuffle=False,
+        num_workers=config.DATA.NUM_WORKERS,
+        pin_memory=False,
+    )
+
+    return dataset_train, dataset_val, dataset_test, data_loader_train, data_loader_val, data_loader_test
