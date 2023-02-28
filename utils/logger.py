@@ -22,11 +22,17 @@ def create_logger(output_dir, name=""):
 
     # create formatter
     fmt = "[%(asctime)s %(name)s] (%(filename)s %(lineno)d): %(levelname)s %(message)s"
+    # color_fmt = (
+    #     colored("[%(asctime)s %(name)s]", "green")
+    #     + colored("(%(filename)s %(lineno)d)", "yellow")
+    #     + ": %(levelname)s %(message)s"
+    # )
+
     color_fmt = (
-        colored("[%(asctime)s %(name)s]", "green")
-        + colored("(%(filename)s %(lineno)d)", "yellow")
+        colored("(%(filename)s %(lineno)d)", "yellow")
         + ": %(levelname)s %(message)s"
     )
+
 
     # create console handlers for master process
     # if dist_rank == 0:
