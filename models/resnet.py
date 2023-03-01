@@ -71,9 +71,9 @@ class ResNetBlock(nn.Module):
 
 
 class ResNet18(nn.Module):
-    def __init__(self):
+    def __init__(self, num_classes=200):
         # Read the following, and uncomment it when you understand it, no need to add more code
-        # num_classes = 10
+        # num_classes = num_classes
         # super(ResNet18, self).__init__()
         # self.in_channels = 64
         # self.conv1 = nn.Conv2d(in_channels=3,
