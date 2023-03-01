@@ -97,8 +97,9 @@ class MediumImagenetHDF5Dataset(Dataset):
 
 
 class CIFAR10Dataset(Dataset):
-    def __init__(self, train=True):
+    def __init__(self, img_size=32, train=True):
         self.train = train
+        self.img_size = img_size
 
         self.transform = self._get_transforms()
         self.dataset = CIFAR10(root="/data/cifar10", train=self.train, download=True)
@@ -118,10 +119,12 @@ class CIFAR10Dataset(Dataset):
                 transforms.RandomHorizontalFlip(),
                 transforms.ToTensor(),
                 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+                transforms.Resize([self.img_size] * 2),
             ]
         else:
             transform = [
                 transforms.ToTensor(),
                 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+                transforms.Resize([self.img_size] * 2),
             ]
         return transforms.Compose(transform)
