@@ -124,6 +124,13 @@ The following questions relate to `data/build.py` and `data/datasets.py`.
 
 `YOUR ANSWER HERE`
 
+### 1.2.3 Visualizing the dataset
+
+Visualize ~10 or so examples from the dataset. There's many ways to do it - you can make a separate little script that loads the datasets and displays some images, or you can update the existing code to display the images where it's already easy to load them. In either case, you can use use `matplotlib` or `PIL` or `opencv` to display/save the images. Alternatively you can also use `torchvision.utils.make_grid` to display multiple images at once and use `torchvision.utils.save_image` to save the images to disk.
+
+Be sure to also get the class names. You might notice that we don't have them loaded anywhere in the repo - feel free to fix it or just hack it together for now, the class names are in a file in the same folder as the hdf5 dataset.
+
+`YOUR ANSWER HERE`
 
 
 # Part 2: Models
@@ -245,6 +252,11 @@ In `models/models.py`, we provided some skelly/guiding comments to implement Res
 
 `YOUR ANSWER HERE`
 
+## 6.1 Visualize examples
+
+Visualize a couple of the predictions on the validation set (20 or so). Be sure to include the ground truth label and the predicted label. You can use `wandb.log()` to log images or also just save them to disc any way you think is easy.
+
+`YOUR ANSWER HERE`
 
 
 # Part 7: Kaggle submission
