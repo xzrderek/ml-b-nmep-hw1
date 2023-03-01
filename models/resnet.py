@@ -5,118 +5,109 @@ Reference:
 [1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
     Deep Residual Learning for Image Recognition. arXiv:1512.03385
 """
-from functools import partial
-
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 
-class BasicBlock(nn.Module):
-    expansion = 1
+class ResNetBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, stride=1):
+        """
+        Create a residual block for our ResNet18 architecture.
 
-    def __init__(self, in_planes, planes, stride=1):
-        super(BasicBlock, self).__init__()
-        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(planes)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn2 = nn.BatchNorm2d(planes)
+        Here is the expected network structure:
+        - conv layer with
+            out_channels=out_channels, 3x3 kernel, stride=stride
+        - batchnorm layer (Batchnorm2D)
+        - conv layer with
+            out_channels=out_channels, 3x3 kernel, stride=1
+        - batchnorm layer (Batchnorm2D)
+        - shortcut layer:
+            if either the stride is not 1 or the out_channels is not equal to in_channels:
+                the shortcut layer is composed of two steps:
+                - conv layer with
+                    in_channels=in_channels, out_channels=out_channels, 1x1 kernel, stride=stride
+                - batchnorm layer (Batchnorm2D)
+            else:
+                the shortcut layer should be an no-op
 
-        self.shortcut = nn.Sequential()
-        if stride != 1 or in_planes != self.expansion * planes:
-            self.shortcut = nn.Sequential(
-                nn.Conv2d(in_planes, self.expansion * planes, kernel_size=1, stride=stride, bias=False),
-                nn.BatchNorm2d(self.expansion * planes),
-            )
+        All conv layers will have a padding of 1 and no bias term. To facilitate this, consider using
+        the provided conv() helper function.
+        When performing a forward pass, the ReLU activation should be applied after the first batchnorm layer
+        and after the second batchnorm gets added to the shortcut.
+        """
+        ## YOUR CODE HERE
 
-    def forward(self, x):
-        out = F.relu(self.bn1(self.conv1(x)))
-        out = self.bn2(self.conv2(out))
-        out += self.shortcut(x)
-        out = F.relu(out)
-        return out
+        ## Initialize the block with a call to super and make your conv and batchnorm layers.
+        super(ResNetBlock, self).__init__()
+        # TODO: Initialize conv and batch norm layers with the correct parameters
 
+        ## Use some conditional logic when defining your shortcut layer
+        ## For a no-op layer, consider creating an empty nn.Sequential()
+        self.shortcut = None  # ???
+        # TODO: Code here to initialize the shortcut layer
 
-class Bottleneck(nn.Module):
-    expansion = 4
-
-    def __init__(self, in_planes, planes, stride=1):
-        super(Bottleneck, self).__init__()
-        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(planes)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
-        self.bn2 = nn.BatchNorm2d(planes)
-        self.conv3 = nn.Conv2d(planes, self.expansion * planes, kernel_size=1, bias=False)
-        self.bn3 = nn.BatchNorm2d(self.expansion * planes)
-
-        self.shortcut = nn.Sequential()
-        if stride != 1 or in_planes != self.expansion * planes:
-            self.shortcut = nn.Sequential(
-                nn.Conv2d(in_planes, self.expansion * planes, kernel_size=1, stride=stride, bias=False),
-                nn.BatchNorm2d(self.expansion * planes),
-            )
+        ## END YOUR CODE
 
     def forward(self, x):
-        out = F.relu(self.bn1(self.conv1(x)))
-        out = F.relu(self.bn2(self.conv2(out)))
-        out = self.bn3(self.conv3(out))
-        out += self.shortcut(x)
-        out = F.relu(out)
-        return out
+        """
+        Compute a forward pass of this batch of data on this residual block.
+
+        x: batch of images of shape (batch_size, num_channels, width, height)
+        returns: result of passing x through this block
+        """
+        ## YOUR CODE HERE
+        ## TODO: Call the first convolution, batchnorm, and activation
+
+        ## TODO: Call the second convolution and batchnorm
+
+        ## TODO: Also call the shortcut layer on the original input
+
+        ## TODO: Sum the result of the shortcut and the result of the second batchnorm
+        ## and apply your activation
+
+        # return out
+        ## END YOUR CODE
+        pass  # Remove this line when you implement this function
 
 
-class ResNet(nn.Module):
-    def __init__(self, block, num_blocks, num_classes=10):
-        super(ResNet, self).__init__()
-        assert len(num_blocks) == 4, "ResNet must have 4 layers"
+class ResNet18(nn.Module):
+    def __init__(self):
+        # Read the following, and uncomment it when you understand it, no need to add more code
+        # num_classes = 10
+        # super(ResNet18, self).__init__()
+        # self.in_channels = 64
+        # self.conv1 = nn.Conv2d(in_channels=3,
+        #                        out_channels=64,
+        #                        kernel_size=3,
+        #                        stride=1,
+        #                        padding=1,
+        #                        bias=False)
+        # self.bn1 = nn.BatchNorm2d(64)
+        # self.layer1 = self.make_block(out_channels=64, stride=1)
+        # self.layer2 = self.make_block(out_channels=128, stride=2)
+        # self.layer3 = self.make_block(out_channels=256, stride=2)
+        # self.layer4 = self.make_block(out_channels=512, stride=2)
+        # self.linear = nn.Linear(512, num_classes)
+        pass  # Remove this line when you uncomment the above code
 
-        self.in_planes = 64
-
-        self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
-        self.layers = nn.ModuleList()
-
-        self.layers.append(self._make_layer(block, 64, num_blocks[0], stride=1))
-        self.layers.append(self._make_layer(block, 128, num_blocks[1], stride=2))
-        self.layers.append(self._make_layer(block, 256, num_blocks[2], stride=2))
-        self.layers.append(self._make_layer(block, 512, num_blocks[3], stride=2))
-
-        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        self.head = nn.Linear(512 * block.expansion, num_classes)
-
-    def _make_layer(self, block, planes, num_blocks, stride):
-        strides = [stride] + [1] * (num_blocks - 1)
-        layers = []
-        for stride in strides:
-            layers.append(block(self.in_planes, planes, stride))
-            self.in_planes = planes * block.expansion
-        return nn.Sequential(*layers)
+    def make_block(self, out_channels, stride):
+        # Read the following, and uncomment it when you understand it, no need to add more code
+        # layers = []
+        # for stride in [stride, 1]:
+        #     layers.append(ResNetBlock(self.in_channels, out_channels, stride))
+        #     self.in_channels = out_channels
+        # return nn.Sequential(*layers)
+        pass  # Remove this line when you uncomment the above code
 
     def forward(self, x):
-        out = F.relu(self.bn1(self.conv1(x)))
-        for layer in self.layers:
-            out = layer(out)
-        out = self.avgpool(out)
-        out = out.view(out.shape[0], -1)
-        out = self.head(out)
-        return out
-
-
-def ResNet18(num_classes):
-    return ResNet(BasicBlock, [2, 2, 2, 2], num_classes=num_classes)
-
-
-def ResNet34(num_classes):
-    return ResNet(BasicBlock, [3, 4, 6, 3], num_classes=num_classes)
-
-
-def ResNet50(num_classes):
-    return ResNet(Bottleneck, [3, 4, 6, 3], num_classes=num_classes)
-
-
-def ResNet101(num_classes):
-    return ResNet(Bottleneck, [3, 4, 23, 3], num_classes=num_classes)
-
-
-def ResNet152(num_classes):
-    return ResNet(Bottleneck, [3, 8, 36, 3], num_classes=num_classes)
+        # Read the following, and uncomment it when you understand it, no need to add more code
+        # x = F.relu(self.bn1(self.conv1(x)))
+        # x = self.layer1(x)
+        # x = self.layer2(x)
+        # x = self.layer3(x)
+        # x = self.layer4(x)
+        # x = F.avg_pool2d(x, 4)
+        # x = torch.flatten(x, 1)
+        # x = self.linear(x)
+        # return x
+        pass  # Remove this line when you uncomment the above code
