@@ -76,19 +76,3 @@ However for when you're hacking or just testing things quickly, it's useful to n
 
 Don't try to understand everything at once, it's daunting! Treat this like you would a large class project or a software engineering project, and work in small chunks (it's why we've cleanly factored the code into modules). Ask questions, don't be afraid to test things out in jupyter notebooks or use the pdb debugger (```breakpoint()``` or ```import pdb; pdb.set_trace()```). These are all good skills to learn to become a great machine learning engineer.
 
-## Nice repository references
-
-Tiny, hackable codebases:
-- Karpathy's [minGPT](https://github.com/karpathy/minGPT)
-- Bring Your Own Latent ([BYOL](https://github.com/sthalles/PyTorch-BYOL))
-- Kaiming's [Masked Autoencoders](https://github.com/facebookresearch/mae) (absolutely superb for submitit, helpful for slurm)
-- Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT) (slightly more structure but enough to train large models)
-- [CleanRL](https://github.com/vwxyzjn/cleanrl), nice for RL... obviously
-
-
-Medium sized repositories with good abstractions (actual folder breakdowns):
-- Berkeley's [nerfstudio](https://github.com/nerfstudio-project/nerfstudio)
-- Microsoft [Swin Transformer](https://github.com/microsoft/Swin-Transformer)
-
-Larger codebases that are decent:
-- Facebook's [PySlowFast](https://github.com/facebookresearch/SlowFast)
