@@ -9,6 +9,8 @@ We will walk you throw all of the parts of it, and hopefully after this homework
 We would recommend you first set up the repository ASAP on honeydew and try running it out of the box to see how it trains, and only afterwards focus on understanding all parts of the code. 
 For your benefit, this codebase works out of the box, and you should be able to train a model on CIFAR-10 with no changes. Throughout the assignment, you will need to make some changes to `models/alexnet.py` and `models/resnet.py`, for which you will find the provided implementations of other models in `models/` to be helpful.
 
+All of the assignment details are provided in `WORKSHEET.md` - you will need to fill in some answers and make code changes. We recommend getting through the `README.md` file first and then doing the worksheet.
+
 Best of luck, and we hope you enjoy it!
 
 ## Setup 
@@ -16,11 +18,11 @@ Best of luck, and we hope you enjoy it!
 To get started, you will need to clone the repository and install the dependencies, preferably in a conda environment. Standard instructions are provided below.
 
 ```bash
-git clone github.com/mlberkeley/sp23-nmep-hw1
+git clone https://github.com/mlberkeley/sp23-nmep-hw1.git
 cd sp23-nmep-hw1
 conda env create -f env.yml
 conda activate vision-zoo
-CUDA_VISIBLE_DEVICES=0 python main.py --cfg=configs/lenet_cifar.yaml
+CUDA_VISIBLE_DEVICES=0 python main.py --cfg=configs/lenet_base.yaml
 ```
 
 This should begin a download and training of a LeNet(ish) model on CIFAR-10. You should see all of the output files in ```output/lenet```, but you can specify exactly where in the configs (more on that in a second).
