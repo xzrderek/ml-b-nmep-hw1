@@ -23,6 +23,9 @@ from utils import create_logger, load_checkpoint, save_checkpoint
 
 def parse_option():
     parser = argparse.ArgumentParser("Vision model training and evaluation script", add_help=False)
+    # saving visualzations of dataset
+    parser.add_argument("--vis-dataset", type=int, help="number of images to save to disk from dataset")
+    
     parser.add_argument("--cfg", type=str, required=True, metavar="FILE", help="path to config file")
     parser.add_argument("--opts", help="Modify config options by adding 'KEY VALUE' pairs.", default=None, nargs="+")
 
@@ -216,6 +219,7 @@ def evaluate(config, data_loader, model):
 
 if __name__ == "__main__":
     args, config = parse_option()
+    print(args)
 
     seed = config.SEED
     torch.manual_seed(seed)
