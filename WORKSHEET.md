@@ -8,7 +8,7 @@ This is the worksheet for Homework 1. Your deliverables for this homework are:
 - [ ] Kaggle submission and writeup (details below)
 - [ ] Github repo with all of your code! You need to either fork it or just copy the code over to your repo. A simple way of doing this is provided below. Include the link to your repo below. If you would like to make the repo private, please dm us and we'll send you the GitHub usernames to add as collaborators.
 
-`YOUR GITHUB REPO HERE (or notice that you DMed us to share a private repo)`
+`YOUR GITHUB REPO HERE: git@github.com:natehaynam/mlab-cv-module.git`
 
 ## To move to your own repo:
 
@@ -28,15 +28,15 @@ Feel free to ask your NMEP friends if you don't know!
 
 ## -1.0 What is the difference between `torch.nn.Module` and `torch.nn.functional`?
 
-`YOUR ANSWER HERE`
+`torch.nn.Module provides an object-oriented interface for ml blocks, while torch.nn.functional is a function interface for applying PyTorch operations on tensors.`
 
 ## -1.1 What is the difference between a Dataset and a DataLoader?
 
-`YOUR ANSWER HERE`
+`Dataset stores samples/labels and dataloader wraps an iterator around dataset to access samples.`
 
 ## -1.2 What does `@torch.no_grad()` above a function header do?
 
-`YOUR ANSWER HERE`
+`no_grad() prevents PyTorch from calcuating gradients to stop updates on gradients that are updating weights to prevent backprop being mad.`
 
 
 
@@ -46,25 +46,25 @@ Read through `README.md` and follow the steps to understand how the repo is stru
 
 ## 0.0 What are the `build.py` files? Why do we have them?**
 
-`YOUR ANSWER HERE`
+`Build.py files typicallly build model/data loaders where the build file handles config parameters.`
 
 ## 0.1 Where would you define a new model?
 
-`YOUR ANSWER HERE`
+`In models folder.`
 
 ## 0.2 How would you add support for a new dataset? What files would you need to change?
 
-`YOUR ANSWER HERE`
+`In the config folder we would add a reference to be passed to the model, and it would be initialized in the datasets.py file. Data loader builder is in data/build.py.`
 
 ## 0.3 Where is the actual training code?
 
-`YOUR ANSWER HERE`
+`main.py`
 
 ## 0.4 Create a diagram explaining the structure of `main.py` and the entire code repo.
 
 Be sure to include the 4 main functions in it (`main`, `train_one_epoch`, `validate`, `evaluate`) and how they interact with each other. Also explain where the other files are used. No need to dive too deep into any part of the code for now, the following parts will do deeper dives into each part of the code. For now, read the code just enough to understand how the pieces come together, not necessarily the specifics. You can use any tool to create the diagram (e.g. just explain it in nice markdown, draw it on paper and take a picture, use draw.io, excalidraw, etc.)
 
-`YOUR ANSWER HERE`
+`https://docs.google.com/presentation/d/1wFS5m9sLssMuXJE9eXPdB6wVM5N4zzwTja0X0NXb-MI/edit?usp=sharing`
 
 
 
@@ -76,37 +76,37 @@ The following questions relate to `data/build.py` and `data/datasets.py`.
 
 ### 1.0.0 What does `build_loader` do?
 
-`YOUR ANSWER HERE`
+`Build loader creates the train and validation train/test datasets and data loaders.`
 
 ### 1.0.1 What functions do you need to implement for a PyTorch Datset? (hint there are 3)
 
-`YOUR ANSWER HERE`
+`_getitem_, _len_, _get_transforms`
 
 ## 1.1 CIFAR10Dataset
 
 ### 1.1.0 Go through the constructor. What field actually contains the data? Do we need to download it ahead of time?
 
-`YOUR ANSWER HERE`
+`The init of the dataset class creates self.dataset storing CIFAR10 or medium image net.`
 
 ### 1.1.1 What is `self.train`? What is `self.transform`?
 
-`YOUR ANSWER HERE`
+`self.train is a boolean value determining how data should be transforemd in _get_transform. Self.transform is a list of image transformation methods including toTensor, Normalize, Resize, RandomHorizontalFlip, ColorJitter, etc.`
 
 ### 1.1.2 What does `__getitem__` do? What is `index`?
 
-`YOUR ANSWER HERE`
+`_getitem_ gets an image from self.dataset with a specified index and transforms it using self.transform, returning the new image, and the label. Index is the element number within the dataset.`
 
 ### 1.1.3 What does `__len__` do?
 
-`YOUR ANSWER HERE`
+`_len_ returns the length of the given dataset.`
 
 ### 1.1.4 What does `self._get_transforms` do? Why is there an if statement?
 
-`YOUR ANSWER HERE`
+`Self._get_transforms retrns a list of image transformations where an if statement on self.train specifies if the elemnt to be returned should contain stochastic transformations.`
 
 ### 1.1.5 What does `transforms.Normalize` do? What do the parameters mean? (hint: take a look here: https://pytorch.org/vision/main/generated/torchvision.transforms.Normalize.html)
 
-`YOUR ANSWER HERE`
+`transforms.Normalize takes in a tensor of an image and normalizes the image. The parameter mean/std sequence of means/stds per channel, while inplace is a boolean parameter indicating inplace normalization.`
 
 ## 1.2 MediumImagenetHDF5Dataset
 
@@ -118,11 +118,11 @@ The following questions relate to `data/build.py` and `data/datasets.py`.
 
 ### 1.2.1 How is `_get_transforms` different from the one in CIFAR10Dataset?
 
-`YOUR ANSWER HERE`
+`The normalization transformation comes with a unique 2d array and instead of adding toTensor argument, a specific lambda cuntion calling torch.tensor and to torch.float is added.`
 
 ### 1.2.2 How is `__getitem__` different from the one in CIFAR10Dataset? How many data splits do we have now? Is it different from CIFAR10? Do we have labels/annotations for the test set?
 
-`YOUR ANSWER HERE`
+`_getitem_ is differs where we do not return the label of indexs in the test set, we have val/train test/train splits and getitem split. We do not have lebels for the test set.`
 
 ### 1.2.3 Visualizing the dataset
 
