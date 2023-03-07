@@ -5,7 +5,7 @@ import os
 import shutil
 import time
 import matplotlib.pyplot as plt
-import opencv as cv2
+import opencv-python as cv2
 
 import numpy as np
 import torch
