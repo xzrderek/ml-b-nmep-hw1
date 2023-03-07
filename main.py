@@ -5,6 +5,7 @@ import os
 import shutil
 import time
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 import cv2
 
 import numpy as np
@@ -234,10 +235,15 @@ if __name__ == "__main__":
             image = image.reshape(3,32,32).permute(1, 2, 0)
             print(image)
             # display the image
+            image_path = "image.png"
             plt.imshow(image)
             # save image
             tensor  = image.cpu().numpy()
-            cv2.imwrite("image.png", tensor)
+            cv2.imwrite(image_path, tensor)
+            # show image
+            image = mpimg.imread(image_path)
+            plt.imshow(image)
+            plt.show()
 
     seed = config.SEED
     torch.manual_seed(seed)
