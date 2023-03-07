@@ -227,11 +227,8 @@ if __name__ == "__main__":
     # returns JSON object as 
     # a dictionary
     data = json.load(f)
-
-    # Iterating through the json
-    # list
-    for i in data['emp_details']:
-        print(i)
+    print(data["--vis-dataset"])
+    print(data["--vis-dataset"]==1)
 
     # Closing file
     f.close()
