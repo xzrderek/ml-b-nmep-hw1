@@ -222,7 +222,7 @@ if __name__ == "__main__":
     args, config = parse_option()
     # select vis-dataset
     if "vis_dataset" in vars(args):
-        for i in range(vars(args)["vis_dataset"])
+        for i in range(vars(args)["vis_dataset"]):
             print(CIFAR10Dataset.__getitem__(0))
             
    
