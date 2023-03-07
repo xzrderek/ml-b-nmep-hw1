@@ -227,7 +227,7 @@ if __name__ == "__main__":
     args, config = parse_option()
     
     # select vis-dataset
-    if "vis_dataset" in vars(args):
+    if vars(args)["vis_dataset"] != 0:
         dataset_train, dataset_val, dataset_test, data_loader_train, data_loader_val, data_loader_test = build_loader(
             config
         )
