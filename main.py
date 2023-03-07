@@ -220,8 +220,11 @@ def evaluate(config, data_loader, model):
 if __name__ == "__main__":
     args, config = parse_option()
     # select vis-dataset
+    print(config)
+    print(args)
+    
     data = vars(args)
-    print(data.keys())
+    #print(data.keys())
 
     seed = config.SEED
     torch.manual_seed(seed)
