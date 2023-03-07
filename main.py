@@ -233,10 +233,7 @@ if __name__ == "__main__":
         for i in range(vars(args)["vis_dataset"]):
             image = CIFAR10Dataset.__getitem__(dataset_train, 0)[0]
             image = image.reshape(3,32,32).permute(1, 2, 0)
-            print(image)
-            # display the image
             image_path = "image.png"
-            plt.imshow(image)
             # save image
             tensor  = image.cpu().numpy()
             cv2.imwrite(image_path, tensor)
