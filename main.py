@@ -16,6 +16,7 @@ from fvcore.nn import FlopCountAnalysis, flop_count_str
 
 from config import get_config
 from data import build_loader
+from data.datasets import CIFAR10Dataset
 from models import build_model
 from optimizer import build_optimizer
 from utils import create_logger, load_checkpoint, save_checkpoint
@@ -220,8 +221,11 @@ def evaluate(config, data_loader, model):
 if __name__ == "__main__":
     args, config = parse_option()
     # select vis-dataset
-    
-    print(type(vars(args)))
+    if "vis_dataset" in vars(args):
+        for i in range(vars(args)["vis_dataset"])
+            print(CIFAR10Dataset.__getitem__(0))
+            
+   
     print(vars(args)["vis_dataset"])
     print(json.dumps(vars(args)))
 
