@@ -227,9 +227,15 @@ if __name__ == "__main__":
         dataset_train, dataset_val, dataset_test, data_loader_train, data_loader_val, data_loader_test = build_loader(
             config
         )
+        
         for i in range(vars(args)["vis_dataset"]):
-            plt.imshow((CIFAR10Dataset.__getitem__(dataset_train, 0)[0]).permute(1, 2, 0))
-            
+            print(CIFAR10Dataset.__getitem__(dataset_train, 0)[0])
+            image = CIFAR10Dataset.__getitem__(dataset_train, 0)[0]
+            image = image.reshape(3,32,32)
+            # Transpose the image
+            image = image.transpose(1,2,0)
+            # Display the image
+            plt.imshow(image)
 
     seed = config.SEED
     torch.manual_seed(seed)
