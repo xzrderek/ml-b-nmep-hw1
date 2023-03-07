@@ -237,7 +237,7 @@ if __name__ == "__main__":
             plt.imshow(image)
             # save image
             tensor  = image.cpu().numpy()
-            cv2.imwrite(tensor, "image.png")
+            cv2.imwrite("image.png", tensor)
 
     seed = config.SEED
     torch.manual_seed(seed)
