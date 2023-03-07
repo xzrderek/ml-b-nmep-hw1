@@ -5,6 +5,7 @@ import os
 import shutil
 import time
 import matplotlib.pyplot as plt
+import opencv as cv2
 
 import numpy as np
 import torch
@@ -229,15 +230,14 @@ if __name__ == "__main__":
         )
         
         for i in range(vars(args)["vis_dataset"]):
-            print(CIFAR10Dataset.__getitem__(dataset_train, 0)[0])
             image = CIFAR10Dataset.__getitem__(dataset_train, 0)[0]
             image = image.reshape(3,32,32).permute(1, 2, 0)
- 
+            print(image)
             # display the image
             plt.imshow(image)
             # save image
-            img = Image.fromarray(image.cpu().detach().numpy()[0])
-            img.save("faces.png")
+            tensor  = image.cpu().numpy()
+            cv2.imwrite(tensor, "image.png")
 
     seed = config.SEED
     torch.manual_seed(seed)
