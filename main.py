@@ -227,11 +227,8 @@ if __name__ == "__main__":
             config
         )
         for i in range(vars(args)["vis_dataset"]):
-            print(CIFAR10Dataset.__getitem__(dataset_train, 0))
+            plt.imshow((CIFAR10Dataset.__getitem__(dataset_train, 0)[0]).permute(1, 2, 0))
             
-   
-    print(vars(args)["vis_dataset"])
-    print(json.dumps(vars(args)))
 
     seed = config.SEED
     torch.manual_seed(seed)
