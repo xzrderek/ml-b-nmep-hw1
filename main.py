@@ -30,7 +30,7 @@ def parse_option():
     parser = argparse.ArgumentParser("Vision model training and evaluation script", add_help=False)
     # saving visualzations of dataset
     # cmd python main.py --cfg configs/resnet18_base.yaml --vis-dataset 10
-    parser.add_argument("--vis-dataset", type=int, help="number of images to save to disk from dataset")
+    parser.add_argument("--vis-dataset", type=int, help="number of images to save to disk from dataset", default=0)
     
     parser.add_argument("--cfg", type=str, required=True, metavar="FILE", help="path to config file")
     parser.add_argument("--opts", help="Modify config options by adding 'KEY VALUE' pairs.", default=None, nargs="+")
