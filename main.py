@@ -232,10 +232,9 @@ if __name__ == "__main__":
             print(CIFAR10Dataset.__getitem__(dataset_train, 0)[0])
             image = CIFAR10Dataset.__getitem__(dataset_train, 0)[0]
             image = image.reshape(3,32,32)
-            # Transpose the image
-            image = image.transpose(1,2,0)
+ 
             # Display the image
-            plt.imshow(image)
+            plt.imshow(image.permute(1, 2, 0))
 
     seed = config.SEED
     torch.manual_seed(seed)
