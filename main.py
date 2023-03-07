@@ -231,10 +231,13 @@ if __name__ == "__main__":
         for i in range(vars(args)["vis_dataset"]):
             print(CIFAR10Dataset.__getitem__(dataset_train, 0)[0])
             image = CIFAR10Dataset.__getitem__(dataset_train, 0)[0]
-            image = image.reshape(3,32,32)
+            image = image.reshape(3,32,32).permute(1, 2, 0)
  
-            # Display the image
-            plt.imshow(image.permute(1, 2, 0))
+            # display the image
+            plt.imshow(image)
+            # save image
+            img = Image.fromarray(image.cpu().detach().numpy()[0])
+            img.save("faces.png")
 
     seed = config.SEED
     torch.manual_seed(seed)
