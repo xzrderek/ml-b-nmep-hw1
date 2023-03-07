@@ -219,19 +219,10 @@ def evaluate(config, data_loader, model):
 
 if __name__ == "__main__":
     args, config = parse_option()
-    logger = create_logger(output_dir=config.OUTPUT, name=f"{config.MODEL.NAME}")
-    print(json.dumps(vars(args)))
-    # Opening JSON file
-    f = open(vars(args))
-
-    # returns JSON object as 
-    # a dictionary
-    data = json.load(f)
+    # select vis-dataset
+    data = vars(args)
     print(data["--vis-dataset"])
     print(data["--vis-dataset"]==1)
-
-    # Closing file
-    f.close()
 
     seed = config.SEED
     torch.manual_seed(seed)
