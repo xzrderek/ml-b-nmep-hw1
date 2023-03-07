@@ -1,20 +1,3 @@
-import argparse
-import datetime
-import json
-import os
-import shutil
-import time
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import cv2
-
-import numpy as np
-import torch
-import torch.nn as nn
-from timm.utils import AverageMeter, accuracy
-from torch.optim.lr_scheduler import CosineAnnealingLR
-from torch.utils.data import Dataset  # For custom datasets
-from tqdm import tqdm
 from fvcore.nn import FlopCountAnalysis, flop_count_str
 
 from config import get_config
@@ -28,6 +11,7 @@ from utils import create_logger, load_checkpoint, save_checkpoint
 def parse_option():
     parser = argparse.ArgumentParser("Vision model training and evaluation script", add_help=False)
     # saving visualzations of dataset
+    # cmd python main.py --cfg configs/resnet18_base.yaml --vis-dataset 10
     parser.add_argument("--vis-dataset", type=int, help="number of images to save to disk from dataset")
     
     parser.add_argument("--cfg", type=str, required=True, metavar="FILE", help="path to config file")
@@ -231,34 +215,37 @@ if __name__ == "__main__":
         )
         
         for i in range(vars(args)["vis_dataset"]):
-            image = CIFAR10Dataset.__getitem__(dataset_train, 0)[0]
-            image = image.reshape(3,32,32).permute(1, 2, 0)
-            image_path = "image.png"
+            im = CIFAR10Dataset.__getitem__(dataset_train, random.randint(0, CIFAR10Dataset.__len__(dataset_train)))
+            label = im[1]
+            image = im[0]
+            image.reshape(3,32,32).permute(1, 2, 0)
+            image_path = str(label) + "no" + str(i) + "image.png"
             # save image
-            tensor  = image.cpu().numpy()
-            cv2.imwrite(image_path, tensor)
+            tensor  = image.cpu()
+            save_image(tensor, image_path)
             # show image
             image = mpimg.imread(image_path)
+            plt.title = image_path
             plt.imshow(image)
             plt.show()
+    else:
+        seed = config.SEED
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed(seed)
+        np.random.seed(seed)
+        # random.seed(seed)
 
-    seed = config.SEED
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    np.random.seed(seed)
-    # random.seed(seed)
+        # Make output dir
+        os.makedirs(config.OUTPUT, exist_ok=True)
+        logger = create_logger(output_dir=config.OUTPUT, name=f"{config.MODEL.NAME}")
 
-    # Make output dir
-    os.makedirs(config.OUTPUT, exist_ok=True)
-    logger = create_logger(output_dir=config.OUTPUT, name=f"{config.MODEL.NAME}")
+        path = os.path.join(config.OUTPUT, "config.yaml")
+        with open(path, "w") as f:
+            f.write(config.dump())
+        logger.info(f"Full config saved to {path}")
 
-    path = os.path.join(config.OUTPUT, "config.yaml")
-    with open(path, "w") as f:
-        f.write(config.dump())
-    logger.info(f"Full config saved to {path}")
+        # print config
+        logger.info(config.dump())
+        logger.info(json.dumps(vars(args)))
 
-    # print config
-    logger.info(config.dump())
-    logger.info(json.dumps(vars(args)))
-
-    main(config)
+        main(config)
