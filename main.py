@@ -220,10 +220,14 @@ def evaluate(config, data_loader, model):
 
 if __name__ == "__main__":
     args, config = parse_option()
+    
     # select vis-dataset
     if "vis_dataset" in vars(args):
+        dataset_train, dataset_val, dataset_test, data_loader_train, data_loader_val, data_loader_test = build_loader(
+            config
+        )
         for i in range(vars(args)["vis_dataset"]):
-            print(CIFAR10Dataset.__getitem__(0))
+            print(CIFAR10Dataset.__getitem__(dataset_train, 0))
             
    
     print(vars(args)["vis_dataset"])
