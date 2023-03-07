@@ -130,7 +130,7 @@ Visualize ~10 or so examples from the dataset. There's many ways to do it - you 
 
 Be sure to also get the class names. You might notice that we don't have them loaded anywhere in the repo - feel free to fix it or just hack it together for now, the class names are in a file in the same folder as the hdf5 dataset.
 
-`YOUR ANSWER HERE`
+`Use python main.py --cfg configs/resnet18_base.yaml --vis-dataset 10 to generate images on command, saved pngs are stored in saved-imgs stored as class number, number image generated in order, image.png`
 
 
 # Part 2: Models
@@ -139,15 +139,15 @@ The following questions relate to `models/build.py` and `models/models.py`.
 
 ## What models are implemented for you?
 
-`YOUR ANSWER HERE`
+`lenet and resnet`
 
 ## What do PyTorch models inherit from? What functions do we need to implement for a PyTorch Model? (hint there are 2)
 
-`YOUR ANSWER HERE`
+`init, forward, they inherit form nn.Module`
 
 ## How many layers does our implementation of LeNet have? How many parameters does it have? (hint: to count the number of parameters, you might want to run the code)
 
-`YOUR ANSWER HERE`
+`5 layers, 2 CNN, 3 linear, 60000 (double check)`
 
 
 
@@ -157,16 +157,16 @@ The following questions relate to `main.py`, and the configs in `configs/`.
 
 ## 3.0 What configs have we provided for you? What models and datasets do they train on?
 
-`YOUR ANSWER HERE`
+`lenet_base.yaml - cifar10, lenet; resnet18_base.yaml - cifar10, resnet18, resnet18_medium_imagenet.yaml - resnet18, medium_imagenet`
 
 ## 3.1 Open `main.py` and go through `main()`. In bullet points, explain what the function does.
 
-`YOUR ANSWER HERE`
+`The main function in main.py takes in config and trains/prints/saves a model based on the given configurations. It begins by creating train/val test/train datasets/loaders. Then building model give the configuration logging the outputted information, setting optimizer, criterion, and training the model there after. After training the model saves predictions to a csv in kaggle format.`
 
 ## 3.2 Go through `validate()` and `evaluate()`. What do they do? How are they different? 
 > Could we have done better by reusing code? Yes. Yes we could have but we didn't... sorry...
 
-`YOUR ANSWER HERE`
+`Validate checks model accuracy during one epoch without backprop and prints the weights in terminal. Validate compares current model state predictions to correct outputs in the validation dataset. The evaluate() method returns a prediction array; unlike the validation() method, evaluate is used for prediction for real use of model rather than mere evaluations to display model accuracy.`
 
 
 # Part 4: AlexNet
