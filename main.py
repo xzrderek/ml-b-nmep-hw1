@@ -222,7 +222,8 @@ if __name__ == "__main__":
     # select vis-dataset
     
     data = vars(config)
-    print(data.keys())
+    print("Config!!!  " + config.dump())
+    print("Var!!!  " + json.dumps(vars(args)))
 
     seed = config.SEED
     torch.manual_seed(seed)
