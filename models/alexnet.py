@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 
-class AlexNet(nn.Module):
+class AlexNet2(nn.Module):
     """Fake LeNet with 32x32 color images and 200 classes"""
 
     def __init__(self, num_classes: int = 200) -> None:
@@ -28,7 +28,7 @@ class AlexNet(nn.Module):
         x = self.classifier(x)
         return x
 
-class AlexNet2(nn.Module):
+class AlexNet(nn.Module):
     """Fake LeNet with 32x32 color images and 200 classes"""
 
     def __init__(self, num_classes: int = 200) -> None:
@@ -62,6 +62,7 @@ class AlexNet2(nn.Module):
             nn.Linear(4096, num_classes))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        out = self.conv(x)
-        out = self.lin(out)
+        x = self.conv(x)
+        x = torch.flatten(x, 1)
+        out = self.lin(x)
         return out
