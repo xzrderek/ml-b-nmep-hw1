@@ -34,7 +34,7 @@ class AlexNet(nn.Module):
             nn.ReLU(),
             nn.Linear(4096, num_classes))
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: nn.Tensor) -> nn.Tensor:
         out = self.conv(x)
         out = self.lin(out)
         return out
