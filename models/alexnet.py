@@ -1,5 +1,5 @@
+import torch
 from torch import nn
-
 
 class AlexNet(nn.Module):
     """Fake LeNet with 32x32 color images and 200 classes"""
@@ -34,7 +34,7 @@ class AlexNet(nn.Module):
             nn.ReLU(),
             nn.Linear(4096, num_classes))
 
-    def forward(self, x: nn.Tensor) -> nn.Tensor:
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         out = self.conv(x)
         out = self.lin(out)
         return out
