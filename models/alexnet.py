@@ -23,6 +23,7 @@ class AlexNet(nn.Module):
             nn.ReLU(),
             nn.MaxPool2d(kernel_size = 3, stride = 2),
             nn.AdaptiveAvgPool2d((6, 6))   
+        )
    
         self.lin = nn.Sequential(
             nn.Dropout(0.5),
