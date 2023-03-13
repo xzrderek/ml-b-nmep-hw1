@@ -65,24 +65,18 @@ class ResNetBlock(nn.Module):
         ## YOUR CODE HERE
         identity = x
         ## TODO: Call the first convolution, batchnorm, and activation
-
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
         ## TODO: Call the second convolution and batchnorm
-
+        out = self.conv2(out)
+        out = self.bn2(out)
         ## TODO: Also call the shortcut layer on the original input
 
         ## TODO: Sum the result of the shortcut and the result of the second batchnorm
         ## and apply your activation
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.relu(out)
-
-        out = self.conv2(out)
-        out = self.bn2(out)
-
         return self.relu(out)
-        # return out
         ## END YOUR CODE
-        pass  # Remove this line when you implement this function
 
 
 class ResNet18(nn.Module):
@@ -105,7 +99,7 @@ class ResNet18(nn.Module):
         self.linear = nn.Linear(512, num_classes)
 
     def make_block(self, out_channels, stride):
-        Read the following, and uncomment it when you understand it, no need to add more code
+        #Read the following, and uncomment it when you understand it, no need to add more code
         layers = []
         for stride in [stride, 1]:
             layers.append(ResNetBlock(self.in_channels, out_channels, stride))
@@ -113,7 +107,7 @@ class ResNet18(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
-        Read the following, and uncomment it when you understand it, no need to add more code
+        #Read the following, and uncomment it when you understand it, no need to add more code
         x = F.relu(self.bn1(self.conv1(x)))
         x = self.layer1(x)
         x = self.layer2(x)
@@ -122,4 +116,4 @@ class ResNet18(nn.Module):
         x = F.avg_pool2d(x, 4)
         x = torch.flatten(x, 1)
         x = self.linear(x)
-         return x
+        return x
