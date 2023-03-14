@@ -12,7 +12,7 @@ import torch.nn.functional as F
 
 class ResNetBlock(nn.Module):
     expansion: int = 1
-    def __init__(self,in_channels, out_channels, stride = 1, norm_layer: Optional[Callable[..., nn.Module]] = None):
+    def __init__(self,in_channels, out_channels, stride = 1, norm_layer= None):
         super().__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
@@ -25,7 +25,7 @@ class ResNetBlock(nn.Module):
         self.shortcut = nn.Sequential()
 
     def conv3x3(in_channels, out_channels, stride = 1):
-      return nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=stride,padding=dilation,groups=groups)
+      return nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=stride,padding=1)
 
     def forward(self, x):
         identity = x
