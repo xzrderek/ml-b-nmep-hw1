@@ -197,7 +197,7 @@ Linear with num_classes output units
 ## 4.1 How many parameters does AlexNet have? How does it compare to LeNet? With the same batch size, how much memory do LeNet and AlexNet take up while training? 
 > (hint: use `gpuststat`)
 
-`Lenet has 0.099276 M parameters and 1.1 GB memory used; AlexNet has 62.3 M parameters and 2.4 GB memory used.`
+`Lenet has 0.099276 M parameters and 1.1 GB memory used; AlexNet has 57.82324 M parameters and 2.4 GB memory used.`
 
 ## 4.2 Train AlexNet on CIFAR10. What accuracy do you get?
 
@@ -220,32 +220,42 @@ Report training and validation accuracy on AlexNet and LeNet. Report hyperparame
 
 ## 5.0 Setup plotting for training and validation accuracy and loss curves. Plot a point every epoch.
 
-`PUSH YOUR CODE TO YOUR OWN GITHUB :)`
+`Graphed in weights and biases`
 
 ## 5.1 Plot the training and validation accuracy and loss curves for AlexNet and LeNet. Attach the plot and any observations you have below.
 
-`YOUR ANSWER HERE`
+`https://api.wandb.ai/links/ml-b/bz82vffv
+https://api.wandb.ai/links/ml-b/sh29kiy0
+https://api.wandb.ai/links/ml-b/yif5s1e2
+https://api.wandb.ai/links/ml-b/y7xg2uta`
 
 ## 5.2 For just AlexNet, vary the learning rate by factors of 3ish or 10 (ie if it's 3e-4 also try 1e-4, 1e-3, 3e-3, etc) and plot all the loss plots on the same graph. What do you observe? What is the best learning rate? Try at least 4 different learning rates.
 
-`YOUR ANSWER HERE`
+`https://api.wandb.ai/links/ml-b/xp8uj9ex
+https://api.wandb.ai/links/ml-b/nkr3oz92
+https://api.wandb.ai/links/ml-b/4wfvsmh6
+https://api.wandb.ai/links/ml-b/hqflxowv`
 
 ## 5.3 Do the same with batch size, keeping learning rate and everything else fixed. Ideally the batch size should be a power of 2, but try some odd batch sizes as well. What do you observe? Record training times and loss/accuracy plots for each batch size (should be easy with W&B). Try at least 4 different batch sizes.
 
-`YOUR ANSWER HERE`
+`https://api.wandb.ai/links/ml-b/hy45dp1v
+https://api.wandb.ai/links/ml-b/ysvyiwib
+https://api.wandb.ai/links/ml-b/18p7uhxo
+https://api.wandb.ai/links/ml-b/de1e0z4h
+Increasing batch size from 512 to 1024 results in decreased training/val loss/acc while 512/256/128 are approximately the same.`
 
 ## 5.4 As a followup to the previous question, we're going to explore the effect of batch size on _throughput_, which is the number of images/sec that our model can process. You can find this by taking the batch size and dividing by the time per epoch. Plot the throughput for batch sizes of powers of 2, i.e. 1, 2, 4, ..., until you reach CUDA OOM. What is the largest batch size you can support? What trends do you observe, and why might this be the case?
 You only need to observe the training for ~ 5 epochs to average out the noise in training times; don't train to completion for this question! We're only asking about the time taken. If you're curious for a more in-depth explanation, feel free to read [this intro](https://horace.io/brrr_intro.html). 
 
-`YOUR ANSWER HERE`
+`https://api.wandb.ai/links/ml-b/gm1c1hw4 The largest batch size I can support is `
 
 ## 5.5 Try different data augmentations. Take a look [here](https://pytorch.org/vision/stable/transforms.html) for torchvision augmentations. Try at least 2 new augmentation schemes. Record loss/accuracy curves and best accuracies on validation/train set.
 
-`YOUR ANSWER HERE`
+`See above graphs`
 
 ## 5.6 (optional) Play around with more hyperparameters. I recommend playing around with the optimizer (Adam, SGD, RMSProp, etc), learning rate scheduler (constant, StepLR, ReduceLROnPlateau, etc), weight decay, dropout, activation functions (ReLU, Leaky ReLU, GELU, Swish, etc), etc.
 
-`YOUR ANSWER HERE`
+`See above graphs
 
 
 
@@ -255,7 +265,7 @@ You only need to observe the training for ~ 5 epochs to average out the noise in
 
 In `models/models.py`, we provided some skelly/guiding comments to implement ResNet. Implement it and train it on CIFAR10. Report training and validation curves, hyperparameters, best validation accuracy, and training time as compared to AlexNet. 
 
-`YOUR ANSWER HERE`
+`Training and Validation curves: Hyperparameters: Validation Accuracy: Training Time: `
 
 ## 6.1 Visualize examples
 
