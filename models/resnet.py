@@ -42,7 +42,7 @@ class ResNetBlock(nn.Module):
             nn.BatchNorm2d(out_channels),
             nn.ReLU(),
             
-            nn.Conv2d(out_channels, 128, kernel_size=3, stride=1, padding=1),
+            nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1),
             nn.BatchNorm2d(out_channels),
             nn.ReLU()
         )
