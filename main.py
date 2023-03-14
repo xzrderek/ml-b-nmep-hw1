@@ -98,12 +98,12 @@ def main(config):
     # start a new wandb run to track this script
     wandb.init(
         # set the wandb project where this run will be logged
-        project="nmep batch graph",
+        project="nmep resnet graph",
 
         # track hyperparameters and run metadata
         config={
         "learning_rate": 0.0003,
-        "architecture": "AlexNet",
+        "architecture": "ResNet",
         "dataset": "CIFAR-100",
         "epochs": 50,
         }
