@@ -46,10 +46,10 @@ class ResNetBlock(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         ## For a no-op layer, consider creating an empty nn.Sequential()
-        self.conv1 = nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=1,padding=1,groups=groups)
+        self.conv1 = nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=1,padding=1)
         self.bn1 = norm_layer(out_channels)
         self.relu = nn.ReLU(inplace=True)
-        self.conv2 = nn.Conv2d(out_channels,out_channels,kernel_size=3,stride=1,padding=1,groups=groups) 
+        self.conv2 = nn.Conv2d(out_channels,out_channels,kernel_size=3,stride=1,padding=1) 
         self.bn2 = norm_layer(out_channels)
         self.stride = stride
         # TODO: Code here to initialize the shortcut layer
