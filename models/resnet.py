@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class ResNetBlock(nn.Module):
+class ResNetBlock2(nn.Module):
     expansion: int = 1
     def __init__(self,in_channels, out_channels, stride = 1, norm_layer: Optional[Callable[..., nn.Module]] = None):
         """
@@ -78,7 +78,34 @@ class ResNetBlock(nn.Module):
         ## and apply your activation
         return self.relu(out)
         ## END YOUR CODE
+class ResNetBlock(nn.Module):
+    expansion: int = 1
+    def __init__(self,in_channels, out_channels, stride = 1, norm_layer: Optional[Callable[..., nn.Module]] = None):
+        super().__init__()
+        if norm_layer is None:
+            norm_layer = nn.BatchNorm2d
+        self.conv1 = conv3x3(in_channels, out_channels, stride)
+        self.bn1 = norm_layer(out_channels)
+        self.relu = nn.ReLU(inplace=True)
+        self.conv2 = conv3x3(out_channels, out_channels)
+        self.bn2 = norm_layer(out_channels)
+        self.stride = stride
+        self.shortcut = nn.Sequential()
 
+    def conv3x3(in_channels, out_channels, stride = 1):
+      return nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=stride,padding=dilation,groups=groups)
+
+    def forward(self, x):
+        identity = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+
+        return self.relu(out)
 
 class ResNet18(nn.Module):
     def __init__(self, num_classes=200):
