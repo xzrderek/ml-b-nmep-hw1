@@ -102,15 +102,16 @@ def main(config):
 
         # track hyperparameters and run metadata
         config={
-        "learning_rate": 0.02,
-        "architecture": "CNN",
+        "learning_rate": 0.0003,
+        "architecture": "AlexNet",
         "dataset": "CIFAR-100",
-        "epochs": 10,
+        "epochs": 50,
         }
     )
     
     start_time = time.time()
     for epoch in range(config.TRAIN.START_EPOCH, config.TRAIN.EPOCHS):
+        batch_time = = time.time()
         train_acc1, train_loss = train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch)
         logger.info(f" * Train Acc {train_acc1:.3f} Train Loss {train_loss:.3f}")
         logger.info(f"Accuracy of the network on the {len(dataset_train)} train images: {train_acc1:.1f}%")
@@ -130,7 +131,8 @@ def main(config):
         log_stats = {"epoch": epoch, "n_params": n_parameters, "n_flops": n_flops,
                      "train_acc": train_acc1, "train_loss": train_loss, 
                      "val_acc": val_acc1, "val_loss": val_loss}
-        wandb.log({"val_acc": val_acc1, "val_loss": val_loss, "train_acc": train_acc1, "trian_loss": train_loss})
+        batch_t = 256 / (time.time() - batch_time)
+        wandb.log({"val_acc": val_acc1, "val_loss": val_loss, "train_acc": train_acc1, "trian_loss": train_loss, "_throughput_": batch_t})
         
         with open(
                 os.path.join(config.OUTPUT, "metrics.json"), mode="a", encoding="utf-8"
