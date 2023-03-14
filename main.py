@@ -7,6 +7,7 @@ import time
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import random
+import wandb
 
 import numpy as np
 import torch
@@ -94,6 +95,20 @@ def main(config):
             return
 
     logger.info("Start training")
+    # start a new wandb run to track this script
+    wandb.init(
+        # set the wandb project where this run will be logged
+        project="my-awesome-project",
+
+        # track hyperparameters and run metadata
+        config={
+        "learning_rate": 0.02,
+        "architecture": "CNN",
+        "dataset": "CIFAR-100",
+        "epochs": 10,
+        }
+    )
+    
     start_time = time.time()
     for epoch in range(config.TRAIN.START_EPOCH, config.TRAIN.EPOCHS):
         train_acc1, train_loss = train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch)
@@ -115,6 +130,8 @@ def main(config):
         log_stats = {"epoch": epoch, "n_params": n_parameters, "n_flops": n_flops,
                      "train_acc": train_acc1, "train_loss": train_loss, 
                      "val_acc": val_acc1, "val_loss": val_loss}
+        wandb.log({"acc": val_acc1, "loss": val_loss})
+        
         with open(
                 os.path.join(config.OUTPUT, "metrics.json"), mode="a", encoding="utf-8"
             ) as f:
