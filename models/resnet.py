@@ -37,11 +37,18 @@ class ResNetBlock(nn.Module):
     def __init__(self,in_channels, out_channels, stride = 1, identity_downsample = None):
         super(ResNetBlock, self).__init__()
         
-        self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=1, padding=1)
-        self.bn1 = nn.BatchNorm2d(out_channels)
+        self.conv1 = nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm2d(out_channels),
+            nn.Relu()
+        )
         
-        self.conv2 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1)
-        self.bn2 = nn.BatchNorm2d(out_channels)
+        self.conv2 = nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1),
+            nn.BatchNorm2d(out_channels),
+            nn.Relu()
+        )
+        
         self.shortcut = nn.Sequential()
         if in_channels != out_channels or stride != 1:
             self.shortcut = nn.Sequential(
@@ -53,13 +60,7 @@ class ResNetBlock(nn.Module):
 
     def forward(self, x):
         x = self.conv1(x)
-        x = self.bn1(x)
-        x = self.relu(x)
-        
         x = self.conv2(x)
-        x = self.bn2(x)
-        x = self.relu(x)
-        
         x = self.shorcut(x)
         
         return x
