@@ -270,7 +270,7 @@ https://api.wandb.ai/links/ml-b/5cqtao31
 https://api.wandb.ai/links/ml-b/6fv4csoi
 https://api.wandb.ai/links/ml-b/bl1js0mt
 https://api.wandb.ai/links/ml-b/3rg3yz2y
-Validation Accuracy: 84% Training Time: 21 minutes`
+Validation Accuracy: 85% Training Time: 45 minutes`
 
 ## 6.1 Visualize examples
 
