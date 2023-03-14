@@ -131,7 +131,7 @@ def main(config):
         log_stats = {"epoch": epoch, "n_params": n_parameters, "n_flops": n_flops,
                      "train_acc": train_acc1, "train_loss": train_loss, 
                      "val_acc": val_acc1, "val_loss": val_loss}
-        batch_t = 1024 / (time.time() - batch_time)
+        batch_t = 128 / (time.time() - batch_time)
         wandb.log({"val_acc": val_acc1, "val_loss": val_loss, "train_acc": train_acc1, "trian_loss": train_loss, "_throughput_": batch_t})
         
         with open(
