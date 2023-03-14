@@ -59,9 +59,10 @@ class ResNetBlock(nn.Module):
         
 
     def forward(self, x):
+        out = x
         x = self.conv1(x)
         x = self.conv2(x)
-        x = self.shortcut(x)
+        x = self.shortcut(out) + x
         
         return x
 
