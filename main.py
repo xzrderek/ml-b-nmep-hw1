@@ -70,18 +70,15 @@ def main(config):
 
     # param and flop counts
     n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    #toy_input = torch.rand(1, 3, config.DATA.IMG_SIZE, config.DATA.IMG_SIZE).to(device) # for measuring flops
-    #flops = FlopCountAnalysis(model, toy_input)
-    #del toy_input
+    toy_input = torch.rand(1, 3, config.DATA.IMG_SIZE, config.DATA.IMG_SIZE).to(device) # for measuring flops
+    flops = FlopCountAnalysis(model, toy_input)
+    del toy_input
 
-    # Testing Model
-    
     # print("Model = %s" % str(model_without_ddp))
-    # n_flops = flops.total()
-    #logger.info(flop_count_str(flops))
-    logger.info(model)
+    n_flops = flops.total()
+    logger.info(flop_count_str(flops))
     logger.info('number of params: {} M'.format(n_parameters / 1e6))
-    #logger.info(f'flops: {n_flops/1e6} MFLOPS')
+    logger.info(f'flops: {n_flops/1e6} MFLOPS')
 
     # Keep it simple with basic epoch scheduler
     optimizer = build_optimizer(config, model)
