@@ -98,7 +98,7 @@ def main(config):
     # start a new wandb run to track this script
     wandb.init(
         # set the wandb project where this run will be logged
-        project="nmep lr graph",
+        project="nmep batch graph",
 
         # track hyperparameters and run metadata
         config={
