@@ -1,3 +1,15 @@
+"""ResNet implementation taken from kuangliu on github
+link: https://github.com/kuangliu/pytorch-cifar/blob/master/models/resnet.py
+For Pre-activation ResNet, see 'preact_resnet.py'.
+Reference:
+[1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+    Deep Residual Learning for Image Recognition. arXiv:1512.03385
+"""
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
 class ResNetBlock(nn.Module):
     expansion: int = 1
     def __init__(self,in_channels, out_channels, stride = 1, norm_layer: Optional[Callable[..., nn.Module]] = None):
