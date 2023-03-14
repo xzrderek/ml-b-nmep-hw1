@@ -40,13 +40,13 @@ class ResNetBlock(nn.Module):
         self.conv1 = nn.Sequential(
             nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=1, padding=1),
             nn.BatchNorm2d(out_channels),
-            nn.Relu()
+            nn.ReLU()
         )
         
         self.conv2 = nn.Sequential(
             nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1),
             nn.BatchNorm2d(out_channels),
-            nn.Relu()
+            nn.ReLU()
         )
         
         self.shortcut = nn.Sequential()
