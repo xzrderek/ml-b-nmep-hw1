@@ -265,7 +265,12 @@ You only need to observe the training for ~ 5 epochs to average out the noise in
 
 In `models/models.py`, we provided some skelly/guiding comments to implement ResNet. Implement it and train it on CIFAR10. Report training and validation curves, hyperparameters, best validation accuracy, and training time as compared to AlexNet. 
 
-`Training and Validation curves: Hyperparameters: Validation Accuracy: Training Time: `
+`
+https://api.wandb.ai/links/ml-b/5cqtao31
+https://api.wandb.ai/links/ml-b/6fv4csoi
+https://api.wandb.ai/links/ml-b/bl1js0mt
+https://api.wandb.ai/links/ml-b/3rg3yz2y
+Validation Accuracy: 84% Training Time: 21 minutes`
 
 ## 6.1 Visualize examples
 
