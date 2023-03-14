@@ -45,7 +45,7 @@ class ResNetBlock(nn.Module):
         self.shortcut = nn.Sequential()
         if in_channels != out_channels or stride != 1:
             self.shortcut = nn.Sequential(
-                nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride, padding=1)
+                nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride, padding=1),
                 nn.BatchNorm2d(out_channels)  
             )
                     
