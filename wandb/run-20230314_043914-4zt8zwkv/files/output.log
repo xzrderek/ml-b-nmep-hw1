@@ -1,0 +1,16 @@
+
+
+ 97%|██████████████████████████████████████████████████████████████████████████  | 191/196 [00:03<00:00, 121.33it/s]
+[32m[2023-03-14 04:39:21 lenet][33m(main.py 179)[39m: INFO Train: [0/50]	lr 0.000300	time 0.0064 (0.0182)	loss 2.3782 (3.1563)	Acc@1 6.250 (9.642)	Mem 23MB
+[32m[2023-03-14 04:39:21 lenet][33m(main.py 188)[39m: INFO EPOCH 0 training takes 0:00:03
+[32m[2023-03-14 04:39:21 lenet][33m(main.py 115)[39m: INFO  * Train Acc 9.642 Train Loss 3.156
+Traceback (most recent call last):
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 286, in <module>
+    main(config)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 119, in main
+    val_acc1, val_loss = validate(config, data_loader_val, model)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 217, in validate
+    batch_time.update(time.time() - end)
+KeyboardInterrupt

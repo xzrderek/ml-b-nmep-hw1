@@ -1,0 +1,917 @@
+2023-03-14 05:59:33,659 INFO    StreamThr :1301022 [internal.py:wandb_internal():87] W&B internal server running at pid: 1301022, started at: 2023-03-14 05:59:33.659235
+2023-03-14 05:59:33,663 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status
+2023-03-14 05:59:33,664 INFO    WriterThread:1301022 [datastore.py:open_for_write():85] open: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/run-aagtb72i.wandb
+2023-03-14 05:59:33,664 DEBUG   SenderThread:1301022 [sender.py:send():336] send: header
+2023-03-14 05:59:33,683 DEBUG   SenderThread:1301022 [sender.py:send():336] send: run
+2023-03-14 05:59:34,049 INFO    SenderThread:1301022 [dir_watcher.py:__init__():219] watching files in: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files
+2023-03-14 05:59:34,049 INFO    SenderThread:1301022 [sender.py:_start_run_threads():1078] run started: aagtb72i with start time 1678773573.659063
+2023-03-14 05:59:34,049 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 05:59:34,050 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 05:59:34,051 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: check_version
+2023-03-14 05:59:34,052 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: check_version
+2023-03-14 05:59:34,101 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: run_start
+2023-03-14 05:59:34,115 DEBUG   HandlerThread:1301022 [system_info.py:__init__():31] System info init
+2023-03-14 05:59:34,115 DEBUG   HandlerThread:1301022 [system_info.py:__init__():46] System info init done
+2023-03-14 05:59:34,115 INFO    HandlerThread:1301022 [system_monitor.py:start():183] Starting system monitor
+2023-03-14 05:59:34,116 INFO    SystemMonitor:1301022 [system_monitor.py:_start():147] Starting system asset monitoring threads
+2023-03-14 05:59:34,116 INFO    HandlerThread:1301022 [system_monitor.py:probe():204] Collecting system info
+2023-03-14 05:59:34,117 INFO    SystemMonitor:1301022 [interfaces.py:start():187] Started cpu monitoring
+2023-03-14 05:59:34,117 INFO    SystemMonitor:1301022 [interfaces.py:start():187] Started disk monitoring
+2023-03-14 05:59:34,118 INFO    SystemMonitor:1301022 [interfaces.py:start():187] Started gpu monitoring
+2023-03-14 05:59:34,119 INFO    SystemMonitor:1301022 [interfaces.py:start():187] Started memory monitoring
+2023-03-14 05:59:34,120 INFO    SystemMonitor:1301022 [interfaces.py:start():187] Started network monitoring
+2023-03-14 05:59:34,183 DEBUG   HandlerThread:1301022 [system_info.py:probe():195] Probing system
+2023-03-14 05:59:34,186 DEBUG   HandlerThread:1301022 [system_info.py:_probe_git():180] Probing git
+2023-03-14 05:59:34,193 DEBUG   HandlerThread:1301022 [system_info.py:_probe_git():188] Probing git done
+2023-03-14 05:59:34,193 DEBUG   HandlerThread:1301022 [system_info.py:probe():240] Probing system done
+2023-03-14 05:59:34,193 DEBUG   HandlerThread:1301022 [system_monitor.py:probe():213] {'os': 'Linux-5.4.0-135-generic-x86_64-with-glibc2.31', 'python': '3.10.9', 'heartbeatAt': '2023-03-14T05:59:34.183612', 'startedAt': '2023-03-14T05:59:33.648574', 'docker': None, 'cuda': None, 'args': ('--cfg=configs/alexnet_base.yaml',), 'state': 'running', 'program': '/home/narisam/sp23-nmep-hw1/main.py', 'codePath': 'main.py', 'git': {'remote': 'git@github.com:natehaynam/mlab-cv-module.git', 'commit': '2dcaa71a23380719d7bbc722c218ed41a2c9da96'}, 'email': None, 'root': '/home/narisam/sp23-nmep-hw1', 'host': 'honeydew', 'username': 'narisam', 'executable': '/home/narisam/miniconda3/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 1984.7462968749999, 'min': 1000.0, 'max': 3900.0}, 'cpu_freq_per_core': [{'current': 1957.488, 'min': 1000.0, 'max': 3900.0}, {'current': 1851.745, 'min': 1000.0, 'max': 3900.0}, {'current': 2200.631, 'min': 1000.0, 'max': 3900.0}, {'current': 2300.0, 'min': 1000.0, 'max': 3900.0}, {'current': 1558.136, 'min': 1000.0, 'max': 3900.0}, {'current': 1533.86, 'min': 1000.0, 'max': 3900.0}, {'current': 1658.558, 'min': 1000.0, 'max': 3900.0}, {'current': 1546.47, 'min': 1000.0, 'max': 3900.0}, {'current': 2299.999, 'min': 1000.0, 'max': 3900.0}, {'current': 1636.481, 'min': 1000.0, 'max': 3900.0}, {'current': 2227.824, 'min': 1000.0, 'max': 3900.0}, {'current': 2269.176, 'min': 1000.0, 'max': 3900.0}, {'current': 1962.953, 'min': 1000.0, 'max': 3900.0}, {'current': 2280.161, 'min': 1000.0, 'max': 3900.0}, {'current': 1626.566, 'min': 1000.0, 'max': 3900.0}, {'current': 2297.251, 'min': 1000.0, 'max': 3900.0}, {'current': 1256.935, 'min': 1000.0, 'max': 3900.0}, {'current': 1244.938, 'min': 1000.0, 'max': 3900.0}, {'current': 2141.3, 'min': 1000.0, 'max': 3900.0}, {'current': 2204.927, 'min': 1000.0, 'max': 3900.0}, {'current': 1257.957, 'min': 1000.0, 'max': 3900.0}, {'current': 2180.771, 'min': 1000.0, 'max': 3900.0}, {'current': 2134.065, 'min': 1000.0, 'max': 3900.0}, {'current': 2165.724, 'min': 1000.0, 'max': 3900.0}, {'current': 2065.103, 'min': 1000.0, 'max': 3900.0}, {'current': 2220.978, 'min': 1000.0, 'max': 3900.0}, {'current': 2135.002, 'min': 1000.0, 'max': 3900.0}, {'current': 1235.851, 'min': 1000.0, 'max': 3900.0}, {'current': 2134.101, 'min': 1000.0, 'max': 3900.0}, {'current': 1227.522, 'min': 1000.0, 'max': 3900.0}, {'current': 2135.212, 'min': 1000.0, 'max': 3900.0}, {'current': 2784.671, 'min': 1000.0, 'max': 3900.0}, {'current': 2001.345, 'min': 1000.0, 'max': 3900.0}, {'current': 1680.925, 'min': 1000.0, 'max': 3900.0}, {'current': 2103.963, 'min': 1000.0, 'max': 3900.0}, {'current': 2296.648, 'min': 1000.0, 'max': 3900.0}, {'current': 1665.963, 'min': 1000.0, 'max': 3900.0}, {'current': 1286.296, 'min': 1000.0, 'max': 3900.0}, {'current': 1738.493, 'min': 1000.0, 'max': 3900.0}, {'current': 1612.25, 'min': 1000.0, 'max': 3900.0}, {'current': 2301.223, 'min': 1000.0, 'max': 3900.0}, {'current': 1824.009, 'min': 1000.0, 'max': 3900.0}, {'current': 2284.207, 'min': 1000.0, 'max': 3900.0}, {'current': 1851.263, 'min': 1000.0, 'max': 3900.0}, {'current': 2278.489, 'min': 1000.0, 'max': 3900.0}, {'current': 2137.089, 'min': 1000.0, 'max': 3900.0}, {'current': 1619.68, 'min': 1000.0, 'max': 3900.0}, {'current': 2299.999, 'min': 1000.0, 'max': 3900.0}, {'current': 1274.831, 'min': 1000.0, 'max': 3900.0}, {'current': 1165.156, 'min': 1000.0, 'max': 3900.0}, {'current': 2111.522, 'min': 1000.0, 'max': 3900.0}, {'current': 2178.666, 'min': 1000.0, 'max': 3900.0}, {'current': 1253.474, 'min': 1000.0, 'max': 3900.0}, {'current': 2298.814, 'min': 1000.0, 'max': 3900.0}, {'current': 2167.946, 'min': 1000.0, 'max': 3900.0}, {'current': 2173.601, 'min': 1000.0, 'max': 3900.0}, {'current': 2249.476, 'min': 1000.0, 'max': 3900.0}, {'current': 2176.898, 'min': 1000.0, 'max': 3900.0}, {'current': 2134.018, 'min': 1000.0, 'max': 3900.0}, {'current': 1244.806, 'min': 1000.0, 'max': 3900.0}, {'current': 2187.571, 'min': 1000.0, 'max': 3900.0}, {'current': 1201.874, 'min': 1000.0, 'max': 3900.0}, {'current': 2165.628, 'min': 1000.0, 'max': 3900.0}, {'current': 2262.323, 'min': 1000.0, 'max': 3900.0}], 'disk': {'total': 3665.0068130493164, 'used': 2644.8205642700195}, 'gpu': 'NVIDIA GeForce RTX 2080 Ti', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}], 'memory': {'total': 503.54959869384766}}
+2023-03-14 05:59:34,193 INFO    HandlerThread:1301022 [system_monitor.py:probe():214] Finished collecting system info
+2023-03-14 05:59:34,193 INFO    HandlerThread:1301022 [system_monitor.py:probe():217] Publishing system info
+2023-03-14 05:59:34,193 DEBUG   HandlerThread:1301022 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-03-14 05:59:34,194 DEBUG   HandlerThread:1301022 [system_info.py:_save_pip():67] Saving pip packages done
+2023-03-14 05:59:34,194 DEBUG   HandlerThread:1301022 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-03-14 05:59:35,050 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/requirements.txt
+2023-03-14 05:59:35,051 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/conda-environment.yaml
+2023-03-14 05:59:35,051 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 05:59:37,029 DEBUG   HandlerThread:1301022 [system_info.py:_save_conda():86] Saving conda packages done
+2023-03-14 05:59:37,030 INFO    HandlerThread:1301022 [system_monitor.py:probe():219] Finished publishing system info
+2023-03-14 05:59:37,034 DEBUG   SenderThread:1301022 [sender.py:send():336] send: files
+2023-03-14 05:59:37,034 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-metadata.json with policy now
+2023-03-14 05:59:37,040 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: stop_status
+2023-03-14 05:59:37,041 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: stop_status
+2023-03-14 05:59:37,050 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/conda-environment.yaml
+2023-03-14 05:59:37,050 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-metadata.json
+2023-03-14 05:59:37,122 DEBUG   SenderThread:1301022 [sender.py:send():336] send: telemetry
+2023-03-14 05:59:37,632 INFO    wandb-upload_0:1301022 [upload_job.py:push():138] Uploaded file /tmp/tmpr2iy84zvwandb/whwp6nxe-wandb-metadata.json
+2023-03-14 05:59:38,051 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:39,123 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 05:59:40,051 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:42,052 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:44,053 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:44,181 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 05:59:46,054 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:48,054 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:49,828 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 05:59:50,055 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:50,690 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 05:59:50,691 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 05:59:50,691 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 05:59:50,691 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 05:59:51,056 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 05:59:52,057 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:52,057 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 05:59:52,059 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 05:59:54,058 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:54,840 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 05:59:56,058 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 05:59:57,062 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 05:59:58,059 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:00,060 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:00,295 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:00,639 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:00:00,640 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:00:00,640 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:00:00,640 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:00:01,060 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:00:02,061 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:02,133 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:05,318 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:06,063 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/config.yaml
+2023-03-14 06:00:06,064 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:07,135 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:08,064 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:10,064 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:10,788 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:10,789 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:00:10,790 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:00:10,790 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:00:10,791 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:00:11,065 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:00:12,070 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:12,178 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:14,066 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:15,894 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:16,068 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:17,187 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:18,068 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:20,069 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:20,766 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:00:20,767 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:00:20,768 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:00:20,768 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:00:21,070 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:00:21,769 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:22,070 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:22,252 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:24,071 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:26,072 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:26,801 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:27,254 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:28,073 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:30,074 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:30,676 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:00:30,677 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:00:30,677 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:00:30,678 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:00:31,074 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:00:32,075 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:32,323 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:32,679 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:34,121 DEBUG   SystemMonitor:1301022 [system_monitor.py:_start():161] Starting system metrics aggregation loop
+2023-03-14 06:00:34,131 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:00:36,076 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:37,324 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:37,780 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:38,085 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:40,086 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:42,087 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:42,788 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:43,457 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:43,459 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:00:43,460 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:00:43,460 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:00:43,461 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:00:44,088 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:00:46,089 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:47,839 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:48,089 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:48,549 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:50,090 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:52,091 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:53,097 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:53,510 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:00:53,512 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:00:53,512 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:00:53,512 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:00:53,624 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:00:54,092 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:00:54,092 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:56,093 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:58,093 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:00:58,182 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:00:58,651 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:00,094 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:02,095 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:03,434 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:03,435 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:01:03,437 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:01:03,437 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:01:03,438 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:01:03,697 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:04,096 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:01:04,096 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:04,127 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:01:06,097 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:08,097 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:08,439 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:08,722 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:10,098 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:12,099 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:13,595 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:13,596 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:01:13,597 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:01:13,597 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:01:13,598 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:01:13,747 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:14,100 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:01:14,100 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:16,100 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:18,101 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:18,677 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:18,790 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:20,102 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:22,103 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:23,591 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:01:23,592 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:01:23,593 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:01:23,593 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:01:23,844 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:24,104 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:01:24,104 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:24,601 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:26,104 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:28,105 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:28,847 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:29,703 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:30,106 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:32,106 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:34,006 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:34,107 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:34,129 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:01:35,132 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:36,108 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:36,422 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:01:36,422 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:01:36,423 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:01:36,424 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:01:37,108 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:01:38,109 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:39,113 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:40,109 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:40,174 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:42,111 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:44,111 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:44,472 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:46,069 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:46,114 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:46,548 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:01:46,549 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:01:46,549 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:01:46,550 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:01:47,113 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:01:48,113 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:49,575 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:50,114 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:51,113 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:52,115 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:54,121 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:54,609 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:01:56,121 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:56,203 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:01:56,511 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:01:56,512 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:01:56,512 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:01:56,513 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:01:57,122 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:01:58,122 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:01:59,679 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:00,123 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:01,311 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:02,124 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:04,125 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:04,132 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:02:04,715 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:06,125 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:06,568 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:06,568 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:02:06,569 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:02:06,570 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:02:06,570 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:02:07,126 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:02:08,126 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:09,770 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:10,127 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:11,590 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:12,128 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:14,130 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:14,792 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:16,131 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:16,742 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:16,743 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:02:16,744 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:02:16,744 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:02:16,744 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:02:17,131 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:02:18,132 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:19,841 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:20,132 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:21,784 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:22,133 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:24,134 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:24,885 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:26,135 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:27,605 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:28,136 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:29,490 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:02:29,490 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:02:29,491 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:02:29,491 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:02:30,137 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:02:30,531 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:32,138 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:32,649 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:34,135 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:02:34,138 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:35,534 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:36,139 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:38,070 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:38,140 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:39,524 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:02:39,524 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:02:39,525 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:02:39,525 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:02:40,141 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:02:40,678 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:42,142 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:43,070 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:44,143 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:45,679 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:46,144 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:48,145 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:48,292 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:49,779 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:02:49,780 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:02:49,780 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:02:49,781 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:02:50,146 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:02:50,146 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:50,774 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:52,147 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:53,397 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:54,147 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:55,775 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:02:56,148 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:58,149 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:02:58,398 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:02:59,759 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:02:59,760 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:02:59,760 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:02:59,761 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:03:00,150 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:03:00,150 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:00,914 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:02,151 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:03,493 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:04,136 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:03:04,151 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:05,919 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:06,153 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:08,154 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:09,434 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:09,869 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:03:09,871 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:03:09,872 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:03:09,873 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:03:10,155 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:03:10,156 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:10,994 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:12,156 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:14,157 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:14,452 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:15,996 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:16,158 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:18,161 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:19,715 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:21,135 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:22,162 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:22,405 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:03:22,406 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:03:22,406 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:03:22,407 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:03:23,163 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:03:24,163 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:24,786 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:26,164 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:26,421 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:26,421 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:28,165 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:29,896 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:30,166 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:31,437 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:32,167 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:32,314 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:03:32,315 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:03:32,315 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:03:32,316 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:03:33,167 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:03:34,146 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:03:34,168 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:34,906 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:36,169 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:36,487 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:38,170 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:39,969 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:40,174 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:41,514 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:42,175 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:42,355 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:03:42,356 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:03:42,356 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:03:42,357 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:03:43,176 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:03:44,176 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:45,003 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:46,177 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:46,516 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:48,178 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:50,178 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:50,993 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:51,591 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:52,180 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:52,526 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:03:52,527 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:03:52,527 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:03:52,527 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:03:53,180 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:03:54,180 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:56,086 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:03:56,181 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:03:56,650 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:03:58,182 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:00,189 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:01,677 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:02,004 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:02,189 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:02,438 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:04:02,439 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:04:02,440 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:04:02,440 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:04:03,190 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:04:04,140 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:04:04,190 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:06,191 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:06,688 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:07,071 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:08,191 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:10,192 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:11,699 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:12,193 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:12,339 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:14,194 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:15,147 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:04:15,148 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:04:15,149 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:04:15,150 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:04:15,195 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:04:16,195 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:17,172 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:17,448 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:18,196 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:20,196 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:22,173 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:22,197 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:22,650 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:24,198 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:25,107 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:04:25,107 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:04:25,108 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:04:25,108 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:04:25,199 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:04:26,199 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:27,287 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:27,675 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:28,200 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:30,201 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:32,201 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:32,288 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:33,653 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:34,143 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:04:34,202 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:35,083 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:04:35,084 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:04:35,084 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:04:35,084 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:04:35,203 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:04:36,203 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:37,406 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:38,204 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:38,736 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:40,205 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:42,205 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:42,407 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:44,206 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:44,569 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:44,974 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:04:44,975 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:04:44,975 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:04:44,976 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:04:45,206 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:04:46,207 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:47,453 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:49,582 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:50,208 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:52,209 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:52,454 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:54,209 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:54,644 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:04:55,190 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:04:55,191 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:04:55,191 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:04:55,192 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:04:55,210 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:04:56,210 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:57,490 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:04:58,211 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:04:59,647 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:00,212 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:02,213 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:02,491 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:04,145 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:05:04,214 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:05,146 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:06,214 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:07,994 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:07,995 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:07,999 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:05:08,000 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:05:08,000 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:05:08,001 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:05:08,215 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:05:10,216 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:10,236 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:12,217 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:13,006 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:14,218 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:15,323 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:16,219 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:18,065 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:18,080 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:05:18,081 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:05:18,082 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:05:18,082 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:05:18,219 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:05:18,220 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:20,220 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:20,379 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:22,221 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:23,098 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:24,222 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:25,461 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:26,223 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:28,093 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:05:28,093 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:05:28,094 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:05:28,094 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:05:28,140 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:28,224 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:05:28,224 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:30,225 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:30,544 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:32,226 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:33,146 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:34,147 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:05:34,226 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:36,227 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:36,526 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:38,189 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:38,206 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:05:38,214 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:05:38,214 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:05:38,215 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:05:38,228 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:05:38,228 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:40,228 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:41,610 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:42,229 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:43,200 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:44,230 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:46,231 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:46,622 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:48,142 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:05:48,143 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:05:48,144 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:05:48,144 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:05:48,232 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:05:48,232 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:48,286 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:50,232 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:51,688 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:52,233 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:53,311 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:05:54,234 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:56,235 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:56,745 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:05:58,237 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:05:58,422 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:00,238 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:01,067 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:06:01,068 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:06:01,068 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:06:01,068 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:06:01,239 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:06:02,069 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:02,245 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:04,083 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:04,149 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:06:04,245 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:06,246 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:07,159 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:08,247 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:09,129 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:10,254 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:11,065 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:06:11,066 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:06:11,067 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:06:11,067 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:06:11,255 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:06:12,255 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:12,974 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:14,190 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:14,256 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:16,257 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:18,082 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:18,258 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:19,234 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:20,259 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:21,088 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:06:21,090 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:06:21,090 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:06:21,091 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:06:21,259 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:06:22,259 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:23,091 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:24,253 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:24,260 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:26,261 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:28,196 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:28,262 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:29,275 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:30,263 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:31,030 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:06:31,030 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:06:31,031 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:06:31,031 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:06:31,263 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:06:32,265 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:33,263 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:34,151 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:06:34,264 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:34,344 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:36,265 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:38,266 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:38,366 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:39,366 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:40,267 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:41,114 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:06:41,121 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:06:41,121 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:06:41,122 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:06:41,267 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:06:42,268 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:43,444 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:44,269 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:44,390 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:46,269 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:48,271 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:48,661 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:49,392 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:50,271 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:52,272 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:54,022 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:06:54,022 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:06:54,023 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:06:54,023 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:06:54,024 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:06:54,273 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:06:55,033 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:55,034 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:06:56,274 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:58,275 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:06:59,126 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:00,036 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:00,276 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:02,276 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:04,039 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:07:04,040 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:07:04,040 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:07:04,041 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:07:04,152 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:07:04,153 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:04,278 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:07:05,102 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:06,279 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:08,279 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:09,242 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:10,103 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:10,280 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:12,281 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:14,024 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:07:14,025 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:07:14,025 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:07:14,025 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:07:14,282 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:07:15,026 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:15,136 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:16,283 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:18,284 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:20,065 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:20,138 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:20,285 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:22,286 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:23,924 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:07:23,925 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:07:23,926 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:07:23,926 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:07:24,286 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:07:25,240 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:25,798 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:26,287 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:28,288 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:30,241 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:30,289 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:30,868 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:32,290 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:33,917 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:07:33,918 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:07:33,918 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:07:33,919 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:07:34,155 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:07:34,291 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:07:34,291 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:35,362 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:35,931 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:36,292 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:38,292 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:40,293 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:40,359 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:40,964 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:42,294 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:44,294 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:46,586 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:46,587 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:46,588 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:07:46,589 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:07:46,589 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:07:46,590 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:07:47,296 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:07:48,296 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:50,297 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:51,627 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:51,629 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:52,298 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:54,301 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:56,301 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:07:56,660 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:07:56,751 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:07:56,752 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:07:56,753 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:07:56,754 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:07:56,754 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:07:57,302 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:07:58,302 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:00,303 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:01,682 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:08:01,751 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:02,304 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:04,156 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:08:04,304 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:06,308 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:06,656 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:08:06,656 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:08:06,656 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:08:06,657 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:08:06,759 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:08:07,308 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:08:07,657 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:08,314 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:10,314 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:11,818 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:08:12,315 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:12,730 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:14,315 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:16,316 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:16,746 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:08:16,747 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:08:16,747 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:08:16,747 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:08:16,890 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:08:17,317 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:08:17,317 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:17,748 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:18,317 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:19,317 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:20,318 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:21,905 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:08:22,319 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:22,757 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:24,320 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:26,320 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:27,061 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-14 06:08:27,321 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:27,829 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:29,322 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:29,698 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-14 06:08:29,699 DEBUG   SenderThread:1301022 [sender.py:send():336] send: history
+2023-03-14 06:08:29,700 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: summary_record
+2023-03-14 06:08:29,701 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:08:30,323 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:08:31,324 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:32,175 DEBUG   SenderThread:1301022 [sender.py:send():336] send: exit
+2023-03-14 06:08:32,175 INFO    SenderThread:1301022 [sender.py:send_exit():559] handling exit code: 0
+2023-03-14 06:08:32,175 INFO    SenderThread:1301022 [sender.py:send_exit():561] handling runtime: 538
+2023-03-14 06:08:32,176 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:08:32,176 INFO    SenderThread:1301022 [sender.py:send_exit():567] send defer
+2023-03-14 06:08:32,176 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:32,177 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 0
+2023-03-14 06:08:32,177 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:32,177 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 0
+2023-03-14 06:08:32,177 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 1
+2023-03-14 06:08:32,178 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:32,178 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 1
+2023-03-14 06:08:32,178 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:32,178 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 1
+2023-03-14 06:08:32,178 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 2
+2023-03-14 06:08:32,178 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:32,178 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 2
+2023-03-14 06:08:32,178 INFO    HandlerThread:1301022 [system_monitor.py:finish():193] Stopping system monitor
+2023-03-14 06:08:32,180 DEBUG   SystemMonitor:1301022 [system_monitor.py:_start():168] Finished system metrics aggregation loop
+2023-03-14 06:08:32,180 DEBUG   SystemMonitor:1301022 [system_monitor.py:_start():172] Publishing last batch of metrics
+2023-03-14 06:08:32,181 INFO    HandlerThread:1301022 [interfaces.py:finish():199] Joined cpu monitor
+2023-03-14 06:08:32,184 INFO    HandlerThread:1301022 [interfaces.py:finish():199] Joined disk monitor
+2023-03-14 06:08:32,324 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:08:32,325 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:33,407 INFO    HandlerThread:1301022 [interfaces.py:finish():199] Joined gpu monitor
+2023-03-14 06:08:33,407 INFO    HandlerThread:1301022 [interfaces.py:finish():199] Joined memory monitor
+2023-03-14 06:08:33,407 INFO    HandlerThread:1301022 [interfaces.py:finish():199] Joined network monitor
+2023-03-14 06:08:33,407 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-14 06:08:33,408 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:33,408 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:33,409 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 2
+2023-03-14 06:08:33,409 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 3
+2023-03-14 06:08:33,409 DEBUG   SenderThread:1301022 [sender.py:send():336] send: stats
+2023-03-14 06:08:33,410 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: poll_exit
+2023-03-14 06:08:33,410 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:33,411 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 3
+2023-03-14 06:08:33,411 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:33,411 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 3
+2023-03-14 06:08:33,411 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 4
+2023-03-14 06:08:33,411 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:33,411 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 4
+2023-03-14 06:08:33,412 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:33,412 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 4
+2023-03-14 06:08:33,412 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 5
+2023-03-14 06:08:33,412 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:33,412 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 5
+2023-03-14 06:08:33,412 DEBUG   SenderThread:1301022 [sender.py:send():336] send: summary
+2023-03-14 06:08:33,413 INFO    SenderThread:1301022 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-14 06:08:33,413 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:33,413 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 5
+2023-03-14 06:08:33,413 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 6
+2023-03-14 06:08:33,414 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:33,414 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 6
+2023-03-14 06:08:33,414 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:33,414 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 6
+2023-03-14 06:08:33,414 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 7
+2023-03-14 06:08:33,414 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: status_report
+2023-03-14 06:08:33,415 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:33,415 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 7
+2023-03-14 06:08:33,415 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:33,415 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 7
+2023-03-14 06:08:34,175 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-14 06:08:34,325 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:08:34,325 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:34,349 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 8
+2023-03-14 06:08:34,349 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: poll_exit
+2023-03-14 06:08:34,349 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:34,350 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 8
+2023-03-14 06:08:34,350 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:34,350 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 8
+2023-03-14 06:08:34,361 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 9
+2023-03-14 06:08:34,361 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:34,362 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 9
+2023-03-14 06:08:34,362 DEBUG   SenderThread:1301022 [sender.py:send():336] send: artifact
+2023-03-14 06:08:35,020 INFO    wandb-upload_0:1301022 [upload_job.py:push():93] Skipped uploading /home/narisam/.local/share/wandb/artifacts/staging/tmpp0x_vywr
+2023-03-14 06:08:35,176 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-14 06:08:35,325 INFO    Thread-13 :1301022 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:35,331 INFO    wandb-upload_1:1301022 [upload_job.py:push():96] Uploaded file /home/narisam/.local/share/wandb/artifacts/staging/tmpwxndsicl
+2023-03-14 06:08:36,488 INFO    SenderThread:1301022 [sender.py:send_artifact():1428] sent artifact job-git_github.com_natehaynam_mlab-cv-module.git_main.py - {'id': 'QXJ0aWZhY3Q6Mzk2NjMyNTY3', 'digest': '35121947d268f1043d87e1405555e326', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU2OTc0OTg0', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6Mzk2NjI2MDQz', 'versionIndex': 2}}, 'version': 'latest'}
+2023-03-14 06:08:36,488 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:36,488 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 9
+2023-03-14 06:08:36,489 INFO    SenderThread:1301022 [dir_watcher.py:finish():365] shutting down directory watcher
+2023-03-14 06:08:37,327 INFO    SenderThread:1301022 [dir_watcher.py:finish():395] scan: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files
+2023-03-14 06:08:37,327 INFO    SenderThread:1301022 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/config.yaml config.yaml
+2023-03-14 06:08:37,327 INFO    SenderThread:1301022 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/requirements.txt requirements.txt
+2023-03-14 06:08:37,327 INFO    SenderThread:1301022 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log output.log
+2023-03-14 06:08:37,327 INFO    SenderThread:1301022 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/conda-environment.yaml conda-environment.yaml
+2023-03-14 06:08:37,328 INFO    SenderThread:1301022 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-metadata.json wandb-metadata.json
+2023-03-14 06:08:37,331 INFO    SenderThread:1301022 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json wandb-summary.json
+2023-03-14 06:08:37,332 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 10
+2023-03-14 06:08:37,335 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: poll_exit
+2023-03-14 06:08:37,340 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:37,345 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 10
+2023-03-14 06:08:37,349 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:37,350 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 10
+2023-03-14 06:08:37,350 INFO    SenderThread:1301022 [file_pusher.py:finish():164] shutting down file pusher
+2023-03-14 06:08:37,781 INFO    wandb-upload_1:1301022 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/output.log
+2023-03-14 06:08:37,806 INFO    wandb-upload_4:1301022 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/wandb-summary.json
+2023-03-14 06:08:37,824 INFO    wandb-upload_3:1301022 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/conda-environment.yaml
+2023-03-14 06:08:37,841 INFO    wandb-upload_2:1301022 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/config.yaml
+2023-03-14 06:08:38,005 INFO    wandb-upload_0:1301022 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/files/requirements.txt
+2023-03-14 06:08:38,206 INFO    Thread-12 (_thread_body):1301022 [sender.py:transition_state():587] send defer: 11
+2023-03-14 06:08:38,206 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:38,206 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 11
+2023-03-14 06:08:38,207 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:38,207 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 11
+2023-03-14 06:08:38,207 INFO    SenderThread:1301022 [file_pusher.py:join():169] waiting for file pusher
+2023-03-14 06:08:38,207 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 12
+2023-03-14 06:08:38,207 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:38,207 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 12
+2023-03-14 06:08:38,208 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:38,208 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 12
+2023-03-14 06:08:38,552 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 13
+2023-03-14 06:08:38,552 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:38,553 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 13
+2023-03-14 06:08:38,553 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:38,553 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 13
+2023-03-14 06:08:38,553 INFO    SenderThread:1301022 [sender.py:transition_state():587] send defer: 14
+2023-03-14 06:08:38,554 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: defer
+2023-03-14 06:08:38,554 DEBUG   SenderThread:1301022 [sender.py:send():336] send: final
+2023-03-14 06:08:38,554 INFO    HandlerThread:1301022 [handler.py:handle_request_defer():170] handle defer: 14
+2023-03-14 06:08:38,554 DEBUG   SenderThread:1301022 [sender.py:send():336] send: footer
+2023-03-14 06:08:38,554 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: defer
+2023-03-14 06:08:38,554 INFO    SenderThread:1301022 [sender.py:send_request_defer():583] handle sender defer: 14
+2023-03-14 06:08:38,555 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-14 06:08:38,555 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: poll_exit
+2023-03-14 06:08:38,556 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: server_info
+2023-03-14 06:08:38,556 DEBUG   SenderThread:1301022 [sender.py:send_request():363] send_request: server_info
+2023-03-14 06:08:38,559 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: get_summary
+2023-03-14 06:08:38,559 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: sampled_history
+2023-03-14 06:08:38,636 INFO    MainThread:1301022 [wandb_run.py:_footer_history_summary_info():3429] rendering history
+2023-03-14 06:08:38,637 INFO    MainThread:1301022 [wandb_run.py:_footer_history_summary_info():3461] rendering summary
+2023-03-14 06:08:38,637 INFO    MainThread:1301022 [wandb_run.py:_footer_sync_info():3387] logging synced files
+2023-03-14 06:08:38,638 DEBUG   HandlerThread:1301022 [handler.py:handle_request():144] handle_request: shutdown
+2023-03-14 06:08:38,638 INFO    HandlerThread:1301022 [handler.py:finish():842] shutting down handler
+2023-03-14 06:08:39,556 INFO    WriterThread:1301022 [datastore.py:close():298] close: /home/narisam/sp23-nmep-hw1/wandb/run-20230314_055933-aagtb72i/run-aagtb72i.wandb
+2023-03-14 06:08:39,636 INFO    SenderThread:1301022 [sender.py:finish():1504] shutting down sender
+2023-03-14 06:08:39,636 INFO    SenderThread:1301022 [file_pusher.py:finish():164] shutting down file pusher
+2023-03-14 06:08:39,636 INFO    SenderThread:1301022 [file_pusher.py:join():169] waiting for file pusher

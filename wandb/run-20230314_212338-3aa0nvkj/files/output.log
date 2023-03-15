@@ -1,0 +1,31 @@
+
+Traceback (most recent call last):
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 291, in <module>
+    main(config)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 118, in main
+    train_acc1, train_loss = train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 170, in train_one_epoch
+    outputs = model(samples)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/sp23-nmep-hw1/models/resnet.py", line 96, in forward
+    x = self.layer1(x)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/sp23-nmep-hw1/models/resnet.py", line 61, in forward
+    x = self.conv(x)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 171, in forward
+    return F.batch_norm(
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/functional.py", line 2450, in batch_norm
+    return torch.batch_norm(
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 256.00 MiB (GPU 0; 10.76 GiB total capacity; 2.05 GiB already allocated; 150.81 MiB free; 2.07 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

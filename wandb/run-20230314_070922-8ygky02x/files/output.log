@@ -1,0 +1,23 @@
+
+Traceback (most recent call last):
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 288, in <module>
+    main(config)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 115, in main
+    train_acc1, train_loss = train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 167, in train_one_epoch
+    outputs = model(samples)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/sp23-nmep-hw1/models/alexnet.py", line 65, in forward
+    x = self.conv(x)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 459, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.75 GiB (GPU 0; 10.76 GiB total capacity; 7.76 GiB already allocated; 663.81 MiB free; 9.07 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

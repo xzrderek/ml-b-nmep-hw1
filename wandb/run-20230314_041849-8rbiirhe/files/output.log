@@ -1,0 +1,34 @@
+
+
+
+
+ 98%|███████████████████████████████████████████████████████████████████████████▊ | 193/196 [00:07<00:00, 38.39it/s]
+[32m[2023-03-14 04:18:59 alexnet][33m(main.py 179)[39m: INFO Train: [0/50]	lr 0.000300	time 0.0179 (0.0390)	loss 1.6923 (2.2643)	Acc@1 27.500 (15.742)	Mem 1188MB
+[32m[2023-03-14 04:18:59 alexnet][33m(main.py 188)[39m: INFO EPOCH 0 training takes 0:00:07
+[32m[2023-03-14 04:18:59 alexnet][33m(main.py 115)[39m: INFO  * Train Acc 15.742 Train Loss 2.264
+
+[32m[2023-03-14 04:18:59 alexnet][33m(main.py 116)[39m: INFO Accuracy of the network on the 50000 train images: 15.7%
+[32m[2023-03-14 04:19:00 alexnet][33m(main.py 221)[39m: INFO Validate: 	Time 0.004 (0.038)	Loss 1.6882 (1.8234)	Acc@1 31.250 (27.730)	Mem 1188MB
+[32m[2023-03-14 04:19:00 alexnet][33m(main.py 120)[39m: INFO  * Val Acc 27.730 Val Loss 1.823
+[32m[2023-03-14 04:19:00 alexnet][33m(main.py 121)[39m: INFO Accuracy of the network on the 10000 val images: 27.7%
+[32m[2023-03-14 04:19:00 alexnet][33m(load_save.py 48)[39m: INFO output/alexnet/ckpt_best.pth saving......
+[32m[2023-03-14 04:19:03 alexnet][33m(load_save.py 50)[39m: INFO output/alexnet/ckpt_best.pth saved !!!
+[32m[2023-03-14 04:19:03 alexnet][33m(main.py 127)[39m: INFO Max accuracy: 27.73%
+Traceback (most recent call last):
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 286, in <module>
+    main(config)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 114, in main
+    train_acc1, train_loss = train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch)
+  File "/home/narisam/sp23-nmep-hw1/main.py", line 160, in train_one_epoch
+    for idx, (samples, targets) in enumerate(tqdm(data_loader, leave=False)):
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 435, in __iter__
+    return self._get_iterator()
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 381, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "/home/narisam/miniconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1034, in __init__
+    w.start()
+  File "/home/narisam/miniconda3/lib/python3.10/multiprocessing/process.py", line 126, in start
+    _children.add(self)
+KeyboardInterrupt
