@@ -90,6 +90,7 @@ class MediumImagenetHDF5Dataset(Dataset):
             transform.extend(
                 [
                     transforms.RandomHorizontalFlip(),
+                    transforms.RandomAutocontrast(0.3),
                     transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4),
                 ]
             )
