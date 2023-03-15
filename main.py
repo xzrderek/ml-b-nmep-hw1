@@ -32,6 +32,7 @@ def parse_option():
     # saving visualzations of dataset
     # cmd python main.py --cfg configs/resnet18_base.yaml --vis-dataset 10
     parser.add_argument("--vis-dataset", type=int, help="number of images to save to disk from dataset", default=0)
+    parser.add_argument("--save-csv", type=int, help="number of images to save to disk from dataset", default=0)
     
     parser.add_argument("--cfg", type=str, required=True, metavar="FILE", help="path to config file")
     parser.add_argument("--opts", help="Modify config options by adding 'KEY VALUE' pairs.", default=None, nargs="+")
@@ -265,6 +266,18 @@ if __name__ == "__main__":
             plt.title = image_path
             plt.imshow(image)
             plt.show()
+    elif vars(args)["save-csv"] != 0:
+        import pandas as pd
+        import numpy as np
+
+        PATH = 'output/resnet18/preds.npy'
+
+        data = np.load(PATH)
+        data = np.argmax(data, axis=1)
+
+        df = pd.DataFrame(data)
+        df.index += 1
+        df.to_csv('submission.csv', header=['Category'], index_label='Id')
     else:
         seed = config.SEED
         torch.manual_seed(seed)
