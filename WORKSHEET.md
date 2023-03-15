@@ -251,11 +251,16 @@ You only need to observe the training for ~ 5 epochs to average out the noise in
 
 ## 5.5 Try different data augmentations. Take a look [here](https://pytorch.org/vision/stable/transforms.html) for torchvision augmentations. Try at least 2 new augmentation schemes. Record loss/accuracy curves and best accuracies on validation/train set.
 
-`See above graphs`
+`
+https://api.wandb.ai/links/ml-b/ei3khtbl
+https://api.wandb.ai/links/ml-b/6jvr0i1d
+https://api.wandb.ai/links/ml-b/pfw8efjg
+https://api.wandb.ai/links/ml-b/ezw9aeo0
+`
 
 ## 5.6 (optional) Play around with more hyperparameters. I recommend playing around with the optimizer (Adam, SGD, RMSProp, etc), learning rate scheduler (constant, StepLR, ReduceLROnPlateau, etc), weight decay, dropout, activation functions (ReLU, Leaky ReLU, GELU, Swish, etc), etc.
 
-`See above graphs
+`
 
 
 
