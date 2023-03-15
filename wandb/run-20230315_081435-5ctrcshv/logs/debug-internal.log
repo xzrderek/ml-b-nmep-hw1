@@ -1,0 +1,188 @@
+2023-03-15 08:14:35,539 INFO    StreamThr :3133285 [internal.py:wandb_internal():87] W&B internal server running at pid: 3133285, started at: 2023-03-15 08:14:35.539009
+2023-03-15 08:14:35,542 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: status
+2023-03-15 08:14:35,545 INFO    WriterThread:3133285 [datastore.py:open_for_write():85] open: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/run-5ctrcshv.wandb
+2023-03-15 08:14:35,547 DEBUG   SenderThread:3133285 [sender.py:send():336] send: header
+2023-03-15 08:14:35,547 DEBUG   SenderThread:3133285 [sender.py:send():336] send: run
+2023-03-15 08:14:35,766 INFO    SenderThread:3133285 [dir_watcher.py:__init__():219] watching files in: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files
+2023-03-15 08:14:35,766 INFO    SenderThread:3133285 [sender.py:_start_run_threads():1078] run started: 5ctrcshv with start time 1678868075.536077
+2023-03-15 08:14:35,766 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: summary_record
+2023-03-15 08:14:35,766 INFO    SenderThread:3133285 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-15 08:14:35,768 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: check_version
+2023-03-15 08:14:35,769 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: check_version
+2023-03-15 08:14:35,818 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: run_start
+2023-03-15 08:14:35,831 DEBUG   HandlerThread:3133285 [system_info.py:__init__():31] System info init
+2023-03-15 08:14:35,831 DEBUG   HandlerThread:3133285 [system_info.py:__init__():46] System info init done
+2023-03-15 08:14:35,831 INFO    HandlerThread:3133285 [system_monitor.py:start():183] Starting system monitor
+2023-03-15 08:14:35,831 INFO    SystemMonitor:3133285 [system_monitor.py:_start():147] Starting system asset monitoring threads
+2023-03-15 08:14:35,831 INFO    HandlerThread:3133285 [system_monitor.py:probe():204] Collecting system info
+2023-03-15 08:14:35,832 INFO    SystemMonitor:3133285 [interfaces.py:start():187] Started cpu monitoring
+2023-03-15 08:14:35,833 INFO    SystemMonitor:3133285 [interfaces.py:start():187] Started disk monitoring
+2023-03-15 08:14:35,834 INFO    SystemMonitor:3133285 [interfaces.py:start():187] Started gpu monitoring
+2023-03-15 08:14:35,835 INFO    SystemMonitor:3133285 [interfaces.py:start():187] Started memory monitoring
+2023-03-15 08:14:35,837 INFO    SystemMonitor:3133285 [interfaces.py:start():187] Started network monitoring
+2023-03-15 08:14:35,891 DEBUG   HandlerThread:3133285 [system_info.py:probe():195] Probing system
+2023-03-15 08:14:35,893 DEBUG   HandlerThread:3133285 [system_info.py:_probe_git():180] Probing git
+2023-03-15 08:14:35,899 DEBUG   HandlerThread:3133285 [system_info.py:_probe_git():188] Probing git done
+2023-03-15 08:14:35,899 DEBUG   HandlerThread:3133285 [system_info.py:probe():240] Probing system done
+2023-03-15 08:14:35,900 DEBUG   HandlerThread:3133285 [system_monitor.py:probe():213] {'os': 'Linux-5.4.0-135-generic-x86_64-with-glibc2.31', 'python': '3.10.9', 'heartbeatAt': '2023-03-15T08:14:35.891738', 'startedAt': '2023-03-15T08:14:35.525026', 'docker': None, 'cuda': None, 'args': ('--cfg=configs/resnet18_medium_imagenet.yaml', '--eval'), 'state': 'running', 'program': '/home/narisam/sp23-nmep-hw1/main.py', 'codePath': 'main.py', 'git': {'remote': 'git@github.com:natehaynam/mlab-cv-module.git', 'commit': '7daa6158731de05c82cdde6ed00d2f859c193382'}, 'email': 'natehaynam@berkeley.edu', 'root': '/home/narisam/sp23-nmep-hw1', 'host': 'honeydew', 'username': 'narisam', 'executable': '/home/narisam/miniconda3/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 1820.5123281250005, 'min': 1000.0, 'max': 3900.0}, 'cpu_freq_per_core': [{'current': 1000.06, 'min': 1000.0, 'max': 3900.0}, {'current': 1463.828, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.71, 'min': 1000.0, 'max': 3900.0}, {'current': 1086.765, 'min': 1000.0, 'max': 3900.0}, {'current': 2263.261, 'min': 1000.0, 'max': 3900.0}, {'current': 2431.236, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.038, 'min': 1000.0, 'max': 3900.0}, {'current': 999.995, 'min': 1000.0, 'max': 3900.0}, {'current': 2546.325, 'min': 1000.0, 'max': 3900.0}, {'current': 1478.972, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.501, 'min': 1000.0, 'max': 3900.0}, {'current': 1001.154, 'min': 1000.0, 'max': 3900.0}, {'current': 2903.197, 'min': 1000.0, 'max': 3900.0}, {'current': 3283.976, 'min': 1000.0, 'max': 3900.0}, {'current': 3284.936, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.055, 'min': 1000.0, 'max': 3900.0}, {'current': 2115.548, 'min': 1000.0, 'max': 3900.0}, {'current': 1062.081, 'min': 1000.0, 'max': 3900.0}, {'current': 2302.098, 'min': 1000.0, 'max': 3900.0}, {'current': 1400.807, 'min': 1000.0, 'max': 3900.0}, {'current': 1499.91, 'min': 1000.0, 'max': 3900.0}, {'current': 3273.881, 'min': 1000.0, 'max': 3900.0}, {'current': 2426.216, 'min': 1000.0, 'max': 3900.0}, {'current': 2487.817, 'min': 1000.0, 'max': 3900.0}, {'current': 2187.78, 'min': 1000.0, 'max': 3900.0}, {'current': 1171.303, 'min': 1000.0, 'max': 3900.0}, {'current': 1098.815, 'min': 1000.0, 'max': 3900.0}, {'current': 3196.94, 'min': 1000.0, 'max': 3900.0}, {'current': 2302.088, 'min': 1000.0, 'max': 3900.0}, {'current': 2480.889, 'min': 1000.0, 'max': 3900.0}, {'current': 1097.371, 'min': 1000.0, 'max': 3900.0}, {'current': 2360.847, 'min': 1000.0, 'max': 3900.0}, {'current': 1001.243, 'min': 1000.0, 'max': 3900.0}, {'current': 1385.301, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.035, 'min': 1000.0, 'max': 3900.0}, {'current': 1058.875, 'min': 1000.0, 'max': 3900.0}, {'current': 2325.552, 'min': 1000.0, 'max': 3900.0}, {'current': 2511.74, 'min': 1000.0, 'max': 3900.0}, {'current': 1001.142, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.253, 'min': 1000.0, 'max': 3900.0}, {'current': 2373.301, 'min': 1000.0, 'max': 3900.0}, {'current': 1311.548, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.051, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.294, 'min': 1000.0, 'max': 3900.0}, {'current': 2671.521, 'min': 1000.0, 'max': 3900.0}, {'current': 2800.264, 'min': 1000.0, 'max': 3900.0}, {'current': 3218.457, 'min': 1000.0, 'max': 3900.0}, {'current': 1000.632, 'min': 1000.0, 'max': 3900.0}, {'current': 2955.752, 'min': 1000.0, 'max': 3900.0}, {'current': 1045.413, 'min': 1000.0, 'max': 3900.0}, {'current': 2437.653, 'min': 1000.0, 'max': 3900.0}, {'current': 1400.997, 'min': 1000.0, 'max': 3900.0}, {'current': 1800.005, 'min': 1000.0, 'max': 3900.0}, {'current': 2169.414, 'min': 1000.0, 'max': 3900.0}, {'current': 2493.204, 'min': 1000.0, 'max': 3900.0}, {'current': 2421.325, 'min': 1000.0, 'max': 3900.0}, {'current': 2262.168, 'min': 1000.0, 'max': 3900.0}, {'current': 1453.604, 'min': 1000.0, 'max': 3900.0}, {'current': 1115.415, 'min': 1000.0, 'max': 3900.0}, {'current': 3196.271, 'min': 1000.0, 'max': 3900.0}, {'current': 2523.483, 'min': 1000.0, 'max': 3900.0}, {'current': 2519.391, 'min': 1000.0, 'max': 3900.0}, {'current': 1058.858, 'min': 1000.0, 'max': 3900.0}, {'current': 1935.558, 'min': 1000.0, 'max': 3900.0}], 'disk': {'total': 3665.0068130493164, 'used': 2671.82218170166}, 'gpu': 'NVIDIA GeForce RTX 2080 Ti', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}], 'memory': {'total': 503.54959869384766}}
+2023-03-15 08:14:35,900 INFO    HandlerThread:3133285 [system_monitor.py:probe():214] Finished collecting system info
+2023-03-15 08:14:35,900 INFO    HandlerThread:3133285 [system_monitor.py:probe():217] Publishing system info
+2023-03-15 08:14:35,900 DEBUG   HandlerThread:3133285 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-03-15 08:14:35,900 DEBUG   HandlerThread:3133285 [system_info.py:_save_pip():67] Saving pip packages done
+2023-03-15 08:14:35,900 DEBUG   HandlerThread:3133285 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-03-15 08:14:36,768 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-summary.json
+2023-03-15 08:14:36,768 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/conda-environment.yaml
+2023-03-15 08:14:36,768 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/requirements.txt
+2023-03-15 08:14:38,526 DEBUG   HandlerThread:3133285 [system_info.py:_save_conda():86] Saving conda packages done
+2023-03-15 08:14:38,527 INFO    HandlerThread:3133285 [system_monitor.py:probe():219] Finished publishing system info
+2023-03-15 08:14:38,531 DEBUG   SenderThread:3133285 [sender.py:send():336] send: files
+2023-03-15 08:14:38,531 INFO    SenderThread:3133285 [sender.py:_save_file():1332] saving file wandb-metadata.json with policy now
+2023-03-15 08:14:38,542 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: stop_status
+2023-03-15 08:14:38,542 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: stop_status
+2023-03-15 08:14:38,624 DEBUG   SenderThread:3133285 [sender.py:send():336] send: telemetry
+2023-03-15 08:14:38,770 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/conda-environment.yaml
+2023-03-15 08:14:38,770 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:38,770 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_created():278] file/dir created: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-metadata.json
+2023-03-15 08:14:38,953 INFO    wandb-upload_0:3133285 [upload_job.py:push():138] Uploaded file /tmp/tmpxdayxqfywandb/a5pjzmy0-wandb-metadata.json
+2023-03-15 08:14:40,559 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: status_report
+2023-03-15 08:14:40,770 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:42,771 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:44,772 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:45,217 DEBUG   SenderThread:3133285 [sender.py:send():336] send: exit
+2023-03-15 08:14:45,217 INFO    SenderThread:3133285 [sender.py:send_exit():559] handling exit code: 255
+2023-03-15 08:14:45,217 INFO    SenderThread:3133285 [sender.py:send_exit():561] handling runtime: 9
+2023-03-15 08:14:45,218 INFO    SenderThread:3133285 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-15 08:14:45,218 INFO    SenderThread:3133285 [sender.py:send_exit():567] send defer
+2023-03-15 08:14:45,218 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:45,218 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 0
+2023-03-15 08:14:45,219 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:45,219 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 0
+2023-03-15 08:14:45,219 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 1
+2023-03-15 08:14:45,219 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:45,219 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 1
+2023-03-15 08:14:45,219 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:45,220 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 1
+2023-03-15 08:14:45,220 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 2
+2023-03-15 08:14:45,220 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:45,220 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 2
+2023-03-15 08:14:45,220 INFO    HandlerThread:3133285 [system_monitor.py:finish():193] Stopping system monitor
+2023-03-15 08:14:45,220 DEBUG   SystemMonitor:3133285 [system_monitor.py:_start():161] Starting system metrics aggregation loop
+2023-03-15 08:14:45,221 DEBUG   SystemMonitor:3133285 [system_monitor.py:_start():168] Finished system metrics aggregation loop
+2023-03-15 08:14:45,221 DEBUG   SystemMonitor:3133285 [system_monitor.py:_start():172] Publishing last batch of metrics
+2023-03-15 08:14:45,222 INFO    HandlerThread:3133285 [interfaces.py:finish():199] Joined cpu monitor
+2023-03-15 08:14:45,223 INFO    HandlerThread:3133285 [interfaces.py:finish():199] Joined disk monitor
+2023-03-15 08:14:45,773 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-summary.json
+2023-03-15 08:14:46,570 INFO    HandlerThread:3133285 [interfaces.py:finish():199] Joined gpu monitor
+2023-03-15 08:14:46,571 INFO    HandlerThread:3133285 [interfaces.py:finish():199] Joined memory monitor
+2023-03-15 08:14:46,571 INFO    HandlerThread:3133285 [interfaces.py:finish():199] Joined network monitor
+2023-03-15 08:14:46,572 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-15 08:14:46,574 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: status_report
+2023-03-15 08:14:46,574 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:46,575 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 2
+2023-03-15 08:14:46,575 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 3
+2023-03-15 08:14:46,575 DEBUG   SenderThread:3133285 [sender.py:send():336] send: stats
+2023-03-15 08:14:46,575 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:46,576 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: poll_exit
+2023-03-15 08:14:46,576 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 3
+2023-03-15 08:14:46,577 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:46,578 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 3
+2023-03-15 08:14:46,578 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 4
+2023-03-15 08:14:46,578 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:46,578 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 4
+2023-03-15 08:14:46,578 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:46,578 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 4
+2023-03-15 08:14:46,578 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 5
+2023-03-15 08:14:46,579 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:46,579 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 5
+2023-03-15 08:14:46,579 DEBUG   SenderThread:3133285 [sender.py:send():336] send: summary
+2023-03-15 08:14:46,580 INFO    SenderThread:3133285 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2023-03-15 08:14:46,580 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:46,580 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 5
+2023-03-15 08:14:46,580 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 6
+2023-03-15 08:14:46,580 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:46,580 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 6
+2023-03-15 08:14:46,581 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:46,581 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 6
+2023-03-15 08:14:46,586 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: status_report
+2023-03-15 08:14:46,763 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 7
+2023-03-15 08:14:46,763 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:46,763 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 7
+2023-03-15 08:14:46,764 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:46,764 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 7
+2023-03-15 08:14:46,773 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/config.yaml
+2023-03-15 08:14:46,774 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-summary.json
+2023-03-15 08:14:46,774 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:47,221 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-15 08:14:48,654 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 8
+2023-03-15 08:14:48,654 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: poll_exit
+2023-03-15 08:14:48,654 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:48,655 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 8
+2023-03-15 08:14:48,655 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:48,655 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 8
+2023-03-15 08:14:48,669 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 9
+2023-03-15 08:14:48,669 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:48,669 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 9
+2023-03-15 08:14:48,669 DEBUG   SenderThread:3133285 [sender.py:send():336] send: artifact
+2023-03-15 08:14:48,774 INFO    Thread-13 :3133285 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:49,336 INFO    wandb-upload_0:3133285 [upload_job.py:push():93] Skipped uploading /home/narisam/.local/share/wandb/artifacts/staging/tmp24vlvg58
+2023-03-15 08:14:49,630 INFO    wandb-upload_1:3133285 [upload_job.py:push():96] Uploaded file /home/narisam/.local/share/wandb/artifacts/staging/tmpnlfb84a5
+2023-03-15 08:14:50,539 INFO    SenderThread:3133285 [sender.py:send_artifact():1428] sent artifact job-git_github.com_natehaynam_mlab-cv-module.git_main.py - {'id': 'QXJ0aWZhY3Q6Mzk3Nzg2ODQ4', 'digest': '3fea273f42ef7c1d16f37d3274a3cb0e', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU3MDgzNzk0', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6Mzk3Nzc2NTg3', 'versionIndex': 2}}, 'version': 'latest'}
+2023-03-15 08:14:50,539 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:50,539 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 9
+2023-03-15 08:14:50,539 INFO    SenderThread:3133285 [dir_watcher.py:finish():365] shutting down directory watcher
+2023-03-15 08:14:50,775 INFO    SenderThread:3133285 [dir_watcher.py:finish():395] scan: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files
+2023-03-15 08:14:50,776 INFO    SenderThread:3133285 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/config.yaml config.yaml
+2023-03-15 08:14:50,776 INFO    SenderThread:3133285 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/requirements.txt requirements.txt
+2023-03-15 08:14:50,776 INFO    SenderThread:3133285 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log output.log
+2023-03-15 08:14:50,776 INFO    SenderThread:3133285 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/conda-environment.yaml conda-environment.yaml
+2023-03-15 08:14:50,782 INFO    SenderThread:3133285 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-metadata.json wandb-metadata.json
+2023-03-15 08:14:50,789 INFO    SenderThread:3133285 [dir_watcher.py:finish():409] scan save: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-summary.json wandb-summary.json
+2023-03-15 08:14:50,794 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 10
+2023-03-15 08:14:50,795 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:50,795 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 10
+2023-03-15 08:14:50,798 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:50,799 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 10
+2023-03-15 08:14:50,800 INFO    SenderThread:3133285 [file_pusher.py:finish():164] shutting down file pusher
+2023-03-15 08:14:51,201 INFO    wandb-upload_3:3133285 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/conda-environment.yaml
+2023-03-15 08:14:51,236 INFO    wandb-upload_1:3133285 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/requirements.txt
+2023-03-15 08:14:51,245 INFO    wandb-upload_0:3133285 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/config.yaml
+2023-03-15 08:14:51,252 INFO    wandb-upload_4:3133285 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/wandb-summary.json
+2023-03-15 08:14:51,297 INFO    wandb-upload_2:3133285 [upload_job.py:push():138] Uploaded file /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/files/output.log
+2023-03-15 08:14:51,498 INFO    Thread-12 (_thread_body):3133285 [sender.py:transition_state():587] send defer: 11
+2023-03-15 08:14:51,498 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:51,498 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 11
+2023-03-15 08:14:51,499 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:51,499 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 11
+2023-03-15 08:14:51,499 INFO    SenderThread:3133285 [file_pusher.py:join():169] waiting for file pusher
+2023-03-15 08:14:51,499 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 12
+2023-03-15 08:14:51,499 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:51,499 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 12
+2023-03-15 08:14:51,500 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:51,500 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 12
+2023-03-15 08:14:51,589 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 13
+2023-03-15 08:14:51,590 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:51,590 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 13
+2023-03-15 08:14:51,590 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:51,590 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 13
+2023-03-15 08:14:51,591 INFO    SenderThread:3133285 [sender.py:transition_state():587] send defer: 14
+2023-03-15 08:14:51,591 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: defer
+2023-03-15 08:14:51,591 INFO    HandlerThread:3133285 [handler.py:handle_request_defer():170] handle defer: 14
+2023-03-15 08:14:51,591 DEBUG   SenderThread:3133285 [sender.py:send():336] send: final
+2023-03-15 08:14:51,592 DEBUG   SenderThread:3133285 [sender.py:send():336] send: footer
+2023-03-15 08:14:51,592 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: defer
+2023-03-15 08:14:51,592 INFO    SenderThread:3133285 [sender.py:send_request_defer():583] handle sender defer: 14
+2023-03-15 08:14:51,592 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-15 08:14:51,593 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: poll_exit
+2023-03-15 08:14:51,593 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: server_info
+2023-03-15 08:14:51,593 DEBUG   SenderThread:3133285 [sender.py:send_request():363] send_request: server_info
+2023-03-15 08:14:51,596 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: get_summary
+2023-03-15 08:14:51,596 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: sampled_history
+2023-03-15 08:14:51,668 INFO    MainThread:3133285 [wandb_run.py:_footer_history_summary_info():3429] rendering history
+2023-03-15 08:14:51,669 INFO    MainThread:3133285 [wandb_run.py:_footer_history_summary_info():3461] rendering summary
+2023-03-15 08:14:51,669 INFO    MainThread:3133285 [wandb_run.py:_footer_sync_info():3387] logging synced files
+2023-03-15 08:14:51,669 DEBUG   HandlerThread:3133285 [handler.py:handle_request():144] handle_request: shutdown
+2023-03-15 08:14:51,670 INFO    HandlerThread:3133285 [handler.py:finish():842] shutting down handler
+2023-03-15 08:14:52,594 INFO    WriterThread:3133285 [datastore.py:close():298] close: /home/narisam/sp23-nmep-hw1/wandb/run-20230315_081435-5ctrcshv/run-5ctrcshv.wandb
+2023-03-15 08:14:52,668 INFO    SenderThread:3133285 [sender.py:finish():1504] shutting down sender
+2023-03-15 08:14:52,668 INFO    SenderThread:3133285 [file_pusher.py:finish():164] shutting down file pusher
+2023-03-15 08:14:52,668 INFO    SenderThread:3133285 [file_pusher.py:join():169] waiting for file pusher
