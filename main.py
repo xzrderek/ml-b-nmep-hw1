@@ -133,8 +133,7 @@ def main(config):
                      "train_acc": train_acc1, "train_loss": train_loss, 
                      "val_acc": val_acc1, "val_loss": val_loss}
         batch_t = 128 / (time.time() - batch_time)
-        wandb.log({"val_acc": val_acc1, "val_loss": val_loss, "train_acc": train_acc1, "trian_loss": train_loss, "_throughput_": batch_t})
-        
+        wandb.log({"val_acc": val_acc1, "val_loss": val_loss, "train_acc": train_acc1, "train_loss": train_loss, "_throughput_": batch_t})
         with open(
                 os.path.join(config.OUTPUT, "metrics.json"), mode="a", encoding="utf-8"
             ) as f:

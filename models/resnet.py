@@ -41,7 +41,6 @@ class ResNetBlock(nn.Module):
             nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1),
             nn.BatchNorm2d(out_channels),
             nn.ReLU(),
-            
             nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1),
             nn.BatchNorm2d(out_channels)
         )
@@ -52,14 +51,12 @@ class ResNetBlock(nn.Module):
                 nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride),
                 nn.BatchNorm2d(out_channels)  
             )
-                    
-        
 
     def forward(self, x):
-        out = x
-        x = self.conv(x)
-        x = self.shortcut(out) + x
-        return F.relu(x)
+        out = self.conv(x)
+        out += self.shortcut(x)
+        out = F.relu(out)
+        return out
 
 class ResNet18(nn.Module):
     def __init__(self, num_classes=200):
