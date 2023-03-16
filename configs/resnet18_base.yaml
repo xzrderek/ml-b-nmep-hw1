@@ -22,5 +22,5 @@ TRAIN:
     BETAS: (0.9, 0.999)
     MOMENTUM: 0.9
 OUTPUT: "output/resnet18_cifar"
-SAVE_FREQ: 50 
+SAVE_FREQ: 2
 PRINT_FREQ: 500
