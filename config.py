@@ -156,7 +156,7 @@ def update_config(config, args):
         config.EVAL_MODE = True
 
     # output folder
-    config.OUTPUT = os.path.join(config.OUTPUT, config.MODEL.NAME)
+    # config.OUTPUT = os.path.join(config.OUTPUT, config.MODEL.NAME)
 
     config.freeze()
 
