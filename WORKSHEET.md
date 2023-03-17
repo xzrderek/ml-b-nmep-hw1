@@ -8,7 +8,7 @@ This is the worksheet for Homework 1. Your deliverables for this homework are:
 - [ ] Kaggle submission and writeup (details below)
 - [ ] Github repo with all of your code! You need to either fork it or just copy the code over to your repo. A simple way of doing this is provided below. Include the link to your repo below. If you would like to make the repo private, please dm us and we'll send you the GitHub usernames to add as collaborators.
 
-`YOUR GITHUB REPO HERE: git@github.com:natehaynam/mlab-cv-module.git`
+`YOUR GITHUB REPO HERE: git@github.com:xzrderek/ml-b-nmep-hw1.git`
 
 ## To move to your own repo:
 
@@ -28,16 +28,17 @@ Feel free to ask your NMEP friends if you don't know!
 
 ## -1.0 What is the difference between `torch.nn.Module` and `torch.nn.functional`?
 
-`torch.nn.Module provides an object-oriented interface for ml blocks, while torch.nn.functional is a function interface for applying PyTorch operations on tensors.`
+The nn.module is the foundation for PyTorch neural networks, managing parameters and defining layers. The nn.functional package provides activation and pooling functions used in the forward() method.
+
 
 ## -1.1 What is the difference between a Dataset and a DataLoader?
 
-`Dataset stores samples/labels and dataloader wraps an iterator around dataset to access samples.`
+In PyTorch, a Dataset groups data from various sources, whereas a DataLoader takes a Dataset and creates an iterable with a fixed batch size for processing.
+
 
 ## -1.2 What does `@torch.no_grad()` above a function header do?
 
-`no_grad() prevents PyTorch from calcuating gradients to stop updates on gradients that are updating weights to prevent backprop being mad.`
-
+The PyTorch function torch.no_grad() disables gradient calculation for a set of code, making it unavailable for backpropagation. This can improve speed.
 
 
 # Part 0: Understanding the codebase
@@ -46,26 +47,23 @@ Read through `README.md` and follow the steps to understand how the repo is stru
 
 ## 0.0 What are the `build.py` files? Why do we have them?**
 
-`Build.py files typicallly build model/data loaders where the build file handles config parameters.`
+The build.py files act as the intermediate between the configuration files and the working model. They allow other files to use the model and data without worrying about complex configurations or dependencies.
 
 ## 0.1 Where would you define a new model?
 
-`In models folder.`
+config/model
 
 ## 0.2 How would you add support for a new dataset? What files would you need to change?
 
-`In the config folder we would add a reference to be passed to the model, and it would be initialized in the datasets.py file. Data loader builder is in data/build.py.`
+The configuration for the model is located in data/build.py and would need to be changed.
 
 ## 0.3 Where is the actual training code?
 
-`main.py`
+main.py
 
 ## 0.4 Create a diagram explaining the structure of `main.py` and the entire code repo.
 
 Be sure to include the 4 main functions in it (`main`, `train_one_epoch`, `validate`, `evaluate`) and how they interact with each other. Also explain where the other files are used. No need to dive too deep into any part of the code for now, the following parts will do deeper dives into each part of the code. For now, read the code just enough to understand how the pieces come together, not necessarily the specifics. You can use any tool to create the diagram (e.g. just explain it in nice markdown, draw it on paper and take a picture, use draw.io, excalidraw, etc.)
-
-`https://docs.google.com/presentation/d/1wFS5m9sLssMuXJE9eXPdB6wVM5N4zzwTja0X0NXb-MI/edit?usp=sharing`
-
 
 
 # Part 1: Datasets
@@ -76,7 +74,8 @@ The following questions relate to `data/build.py` and `data/datasets.py`.
 
 ### 1.0.0 What does `build_loader` do?
 
-`Build loader creates the train and validation train/test datasets and data loaders.`
+The build loader function is responsible for creating both the training and validation datasets, as well as their respective data loaders.
+
 
 ### 1.0.1 What functions do you need to implement for a PyTorch Datset? (hint there are 3)
 
@@ -86,51 +85,50 @@ The following questions relate to `data/build.py` and `data/datasets.py`.
 
 ### 1.1.0 Go through the constructor. What field actually contains the data? Do we need to download it ahead of time?
 
-`The init of the dataset class creates self.dataset storing CIFAR10 or medium image net.`
+In the initialization of the dataset class, a self.dataset attribute is created and populated with either the CIFAR10 or Medium Image Net dataset.
 
 ### 1.1.1 What is `self.train`? What is `self.transform`?
 
-`self.train is a boolean value determining how data should be transforemd in _get_transform. Self.transform is a list of image transformation methods including toTensor, Normalize, Resize, RandomHorizontalFlip, ColorJitter, etc.`
+self.train is a bool that tells us if this data is training data or not. in _get_transform. self.transform is a list of image transformation methods.
 
 ### 1.1.2 What does `__getitem__` do? What is `index`?
 
-`_getitem_ gets an image from self.dataset with a specified index and transforms it using self.transform, returning the new image, and the label. Index is the element number within the dataset.`
+`_getitem_` gets an image from self.dataset with a specified index. Index is the index in the dataset.
 
 ### 1.1.3 What does `__len__` do?
 
-`_len_ returns the length of the given dataset.`
+_len_ returns the length of the given dataset.
 
 ### 1.1.4 What does `self._get_transforms` do? Why is there an if statement?
 
-`Self._get_transforms retrns a list of image transformations where an if statement on self.train specifies if the elemnt to be returned should contain stochastic transformations.`
+self._get_transforms gives a list of image transformations. There's an if statement that controls whether the data is training data or validation data.
 
 ### 1.1.5 What does `transforms.Normalize` do? What do the parameters mean? (hint: take a look here: https://pytorch.org/vision/main/generated/torchvision.transforms.Normalize.html)
 
-`transforms.Normalize takes in a tensor of an image and normalizes the image. The parameter mean/std sequence of means/stds per channel, while inplace is a boolean parameter indicating inplace normalization.`
+transforms.Normalize takes in a tensor of an image and normalizes the image. The parameter mean/std sequence of means/stds per channel, while inplace is a boolean parameter indicating inplace normalization.
 
 ## 1.2 MediumImagenetHDF5Dataset
 
 ### 1.2.0 Go through the constructor. What field actually contains the data? Where is the data actually stored on honeydew? What other files are stored in that folder on honeydew? How large are they?
 
-`filepath: str = "/data/medium-imagenet/medium-imagenet-nmep-96.hdf5" field stores the data, /data/medium-imagenet/ on honeydew, the weights for llama is 150+ GBs`
+"/data/medium-imagenet/medium-imagenet-nmep-96.hdf5" field stores the data, /data/medium-imagenet/ on honeydew. The weights are over 150 GB
 
 > *Some background*: HDF5 is a file format that stores data in a hierarchical structure. It is similar to a python dictionary. The files are binary and are generally really efficient to use. Additionally, `h5py.File()` does not actually read the entire file contents into memory. Instead, it only reads the data when you access it (as in `__getitem__`). You can learn more about [hdf5 here](https://portal.hdfgroup.org/display/HDF5/HDF5) and [h5py here](https://www.h5py.org/).
 
 ### 1.2.1 How is `_get_transforms` different from the one in CIFAR10Dataset?
 
-`The normalization transformation comes with a unique 2d array and instead of adding toTensor argument, a specific lambda cuntion calling torch.tensor and to torch.float is added.`
+Rather than simply checking if the model is trained and returning two different outcomes, the getTransforms function checks whether the model is in training mode and whether data augmentation should be applied. The function also stores the transforms in a list. Additionally, the function divides the data by 256 as a normalization technique.
+
 
 ### 1.2.2 How is `__getitem__` different from the one in CIFAR10Dataset? How many data splits do we have now? Is it different from CIFAR10? Do we have labels/annotations for the test set?
 
-`_getitem_ is differs where we do not return the label of indexs in the test set, we have val/train test/train splits and getitem split. We do not have lebels for the test set.`
+This `_getitem_`method is different in that it checks if the model is testing. If it is, labels are added, but if not, the labels become arbitrary. Additionally, because these images are composed of pixel values, they are split, whereas the CIFAR10 dataset was not split.
 
 ### 1.2.3 Visualizing the dataset
 
 Visualize ~10 or so examples from the dataset. There's many ways to do it - you can make a separate little script that loads the datasets and displays some images, or you can update the existing code to display the images where it's already easy to load them. In either case, you can use use `matplotlib` or `PIL` or `opencv` to display/save the images. Alternatively you can also use `torchvision.utils.make_grid` to display multiple images at once and use `torchvision.utils.save_image` to save the images to disk.
 
 Be sure to also get the class names. You might notice that we don't have them loaded anywhere in the repo - feel free to fix it or just hack it together for now, the class names are in a file in the same folder as the hdf5 dataset.
-
-`Use python main.py --cfg configs/resnet18_base.yaml --vis-dataset 10 to generate images on command, saved pngs are stored in saved-imgs stored as class number, number image generated in order, image.png`
 
 
 # Part 2: Models
@@ -139,15 +137,15 @@ The following questions relate to `models/build.py` and `models/models.py`.
 
 ## What models are implemented for you?
 
-`lenet and resnet`
+lenet and resnet
 
 ## What do PyTorch models inherit from? What functions do we need to implement for a PyTorch Model? (hint there are 2)
 
-`init, forward, they inherit form nn.Module`
+init, forward, they inherit form nn.Module
 
 ## How many layers does our implementation of LeNet have? How many parameters does it have? (hint: to count the number of parameters, you might want to run the code)
 
-`5 layers, 2 CNN, 3 linear, 0.099276 M`
+5 layers, 2 CNN, 3 linear, 0.099276 M
 
 
 
@@ -157,16 +155,16 @@ The following questions relate to `main.py`, and the configs in `configs/`.
 
 ## 3.0 What configs have we provided for you? What models and datasets do they train on?
 
-`lenet_base.yaml - cifar10, lenet; resnet18_base.yaml - cifar10, resnet18, resnet18_medium_imagenet.yaml - resnet18, medium_imagenet`
+lenet_base.yaml - cifar10, lenet; resnet18_base.yaml - cifar10, resnet18, resnet18_medium_imagenet.yaml - resnet18, medium_imagenet
 
 ## 3.1 Open `main.py` and go through `main()`. In bullet points, explain what the function does.
 
-`The main function in main.py takes in config and trains/prints/saves a model based on the given configurations. It begins by creating train/val test/train datasets/loaders. Then building model give the configuration logging the outputted information, setting optimizer, criterion, and training the model there after. After training the model saves predictions to a csv in kaggle format.`
+The main function in main.py takes a configuration file as input and trains, prints, and saves a model based on the provided configuration. The function begins by creating the training and validation datasets and their respective data loaders. The model is then built based on the provided configuration, and the relevant information is logged. The optimizer and criterion are set, and the model is trained using the training data. After training, the predictions are saved to a CSV file in Kaggle format.
 
 ## 3.2 Go through `validate()` and `evaluate()`. What do they do? How are they different? 
 > Could we have done better by reusing code? Yes. Yes we could have but we didn't... sorry...
 
-`Validate checks model accuracy during one epoch without backprop and prints the weights in terminal. Validate compares current model state predictions to correct outputs in the validation dataset. The evaluate() method returns a prediction array; unlike the validation() method, evaluate is used for prediction for real use of model rather than mere evaluations to display model accuracy.`
+The validate function checks the model accuracy during one epoch without performing backpropagation, and prints the weights in the terminal. It compares the current model state predictions to the correct outputs in the validation dataset. The evaluate() method, on the other hand, returns a prediction array. Unlike the validate() method, evaluate() is used for making predictions for the real use of the model, rather than merely evaluating and displaying the model accuracy.
 
 
 # Part 4: AlexNet
@@ -197,7 +195,7 @@ Linear with num_classes output units
 ## 4.1 How many parameters does AlexNet have? How does it compare to LeNet? With the same batch size, how much memory do LeNet and AlexNet take up while training? 
 > (hint: use `gpuststat`)
 
-`Lenet has 0.099276 M parameters and 1.1 GB memory used; AlexNet has 57.82324 M parameters and 2.4 GB memory used.`
+Lenet has 0.099276 M parameters and 1.1 GB memory. AlexNet has 57.82324 M parameters and 2.4 GB memory.
 
 ## 4.2 Train AlexNet on CIFAR10. What accuracy do you get?
 
@@ -206,7 +204,7 @@ Report training and validation accuracy on AlexNet and LeNet. Report hyperparame
 > You can just copy the config file, don't need to write it all out again.
 > Also no need to tune the models much, you'll do it in the next part.
 
-`77.5 % accuracy`
+`77.3 % accuracy`
 
 
 
@@ -220,43 +218,42 @@ Report training and validation accuracy on AlexNet and LeNet. Report hyperparame
 
 ## 5.0 Setup plotting for training and validation accuracy and loss curves. Plot a point every epoch.
 
-`Graphed in weights and biases`
+Graphed in weights and biases
 
 ## 5.1 Plot the training and validation accuracy and loss curves for AlexNet and LeNet. Attach the plot and any observations you have below.
 
-`https://api.wandb.ai/links/ml-b/bz82vffv
+https://api.wandb.ai/links/ml-b/bz82vffv
 https://api.wandb.ai/links/ml-b/sh29kiy0
 https://api.wandb.ai/links/ml-b/yif5s1e2
-https://api.wandb.ai/links/ml-b/y7xg2uta`
+https://api.wandb.ai/links/ml-b/y7xg2uta
 
 ## 5.2 For just AlexNet, vary the learning rate by factors of 3ish or 10 (ie if it's 3e-4 also try 1e-4, 1e-3, 3e-3, etc) and plot all the loss plots on the same graph. What do you observe? What is the best learning rate? Try at least 4 different learning rates.
 
-`https://api.wandb.ai/links/ml-b/xp8uj9ex
+https://api.wandb.ai/links/ml-b/xp8uj9ex
 https://api.wandb.ai/links/ml-b/nkr3oz92
 https://api.wandb.ai/links/ml-b/4wfvsmh6
-https://api.wandb.ai/links/ml-b/hqflxowv`
+https://api.wandb.ai/links/ml-b/hqflxowv
 
 ## 5.3 Do the same with batch size, keeping learning rate and everything else fixed. Ideally the batch size should be a power of 2, but try some odd batch sizes as well. What do you observe? Record training times and loss/accuracy plots for each batch size (should be easy with W&B). Try at least 4 different batch sizes.
 
-`https://api.wandb.ai/links/ml-b/hy45dp1v
+https://api.wandb.ai/links/ml-b/hy45dp1v
 https://api.wandb.ai/links/ml-b/ysvyiwib
 https://api.wandb.ai/links/ml-b/18p7uhxo
 https://api.wandb.ai/links/ml-b/de1e0z4h
-Increasing batch size from 512 to 1024 results in decreased training/val loss/acc while 512/256/128 are approximately the same.`
 
 ## 5.4 As a followup to the previous question, we're going to explore the effect of batch size on _throughput_, which is the number of images/sec that our model can process. You can find this by taking the batch size and dividing by the time per epoch. Plot the throughput for batch sizes of powers of 2, i.e. 1, 2, 4, ..., until you reach CUDA OOM. What is the largest batch size you can support? What trends do you observe, and why might this be the case?
 You only need to observe the training for ~ 5 epochs to average out the noise in training times; don't train to completion for this question! We're only asking about the time taken. If you're curious for a more in-depth explanation, feel free to read [this intro](https://horace.io/brrr_intro.html). 
 
-`https://api.wandb.ai/links/ml-b/gm1c1hw4 The largest batch size I can support is `
+https://api.wandb.ai/links/ml-b/gm1c1hw4 
 
 ## 5.5 Try different data augmentations. Take a look [here](https://pytorch.org/vision/stable/transforms.html) for torchvision augmentations. Try at least 2 new augmentation schemes. Record loss/accuracy curves and best accuracies on validation/train set.
 
-`
+
 https://api.wandb.ai/links/ml-b/ei3khtbl
 https://api.wandb.ai/links/ml-b/6jvr0i1d
 https://api.wandb.ai/links/ml-b/pfw8efjg
 https://api.wandb.ai/links/ml-b/ezw9aeo0
-`
+
 
 ## 5.6 (optional) Play around with more hyperparameters. I recommend playing around with the optimizer (Adam, SGD, RMSProp, etc), learning rate scheduler (constant, StepLR, ReduceLROnPlateau, etc), weight decay, dropout, activation functions (ReLU, Leaky ReLU, GELU, Swish, etc), etc.
 
@@ -270,19 +267,16 @@ https://api.wandb.ai/links/ml-b/ezw9aeo0
 
 In `models/models.py`, we provided some skelly/guiding comments to implement ResNet. Implement it and train it on CIFAR10. Report training and validation curves, hyperparameters, best validation accuracy, and training time as compared to AlexNet. 
 
-`
 https://api.wandb.ai/links/ml-b/5cqtao31
 https://api.wandb.ai/links/ml-b/6fv4csoi
 https://api.wandb.ai/links/ml-b/bl1js0mt
 https://api.wandb.ai/links/ml-b/3rg3yz2y
-Validation Accuracy: 85% Training Time: 45 minutes`
 
 ## 6.1 Visualize examples
 
 Visualize a couple of the predictions on the validation set (20 or so). Be sure to include the ground truth label and the predicted label. You can use `wandb.log()` to log images or also just save them to disc any way you think is easy.
 
-`YOUR ANSWER HERE`
-
+Check visualize.ipynb in home directory.
 
 # Part 7: Kaggle submission
 
@@ -305,3 +299,5 @@ We don't expect anything fancy here. Just a brief summary of what you did, what 
 **REQUIREMENT**: Everyone in your group must be able to explain what you did! Even if one person carries (I know, it happens) everyone must still be able to explain what's going on!
 
 Now go play with the models and have some competitive fun! 🎉
+
+Attempted running different batch sizes over varying epochs. Best for me was deafult batch size with 10 epochs. Attempted 40 epochs (was worse, not really sure why), 4x larger LR and batch size and 10 epochs, and 8x larger LR and batch size and 10 epochs.
